@@ -34,7 +34,6 @@
   --color-border: #25302a;
 }
 
-
 /* =========================================
    BASE
 ========================================= */
@@ -53,12 +52,9 @@
     margin: 0;
     min-width: 320px;
     min-height: 100vh;
-
     background: #000508;
     color: var(--color-foreground);
-
     font-family: Arial, Helvetica, sans-serif;
-
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -84,7 +80,6 @@
   }
 }
 
-
 /* =========================================
    HERO BACKGROUND
 ========================================= */
@@ -92,29 +87,25 @@
 /* Large subtle dot grid used in hero section */
 
 .dot-grid {
-  background-image:
-    radial-gradient(
-      circle,
-      rgba(25, 32, 29, 0.8) 1px,
-      transparent 1px
-    );
+  background-image: radial-gradient(
+    circle,
+    rgba(25, 32, 29, 0.8) 1px,
+    transparent 1px
+  );
 
   background-size: 24px 24px;
 }
 
-
 /* Ambient fade */
 
 .ambient-glow {
-  background:
-    radial-gradient(
-      circle at center,
-      rgba(16, 21, 21, 0.95) 0%,
-      rgba(16, 21, 21, 0.6) 35%,
-      rgba(0, 5, 8, 0) 75%
-    );
+  background: radial-gradient(
+    circle at center,
+    rgba(16, 21, 21, 0.95) 0%,
+    rgba(16, 21, 21, 0.6) 35%,
+    rgba(0, 5, 8, 0) 75%
+  );
 }
-
 
 /* =========================================
    SCROLLBAR
@@ -137,37 +128,78 @@
   background: #5e8c2e;
 }
 
-
 /* =========================================
    ARCHITECTURE DIAGRAM
 ========================================= */
 
+/*
+   IMPORTANT:
 
-/* -----------------------------------------
-   DIAGRAM CANVAS / WRAPPER
+   The architecture diagram uses a fixed internal
+   coordinate system.
 
-   Internal coordinate system:
-   820px × 560px
+   Actual content bounds:
+   Width  = approximately 860px
+   Height = approximately 598px
 
-   SVG viewBox:
-   0 0 820 560
------------------------------------------ */
+   We keep the internal canvas fixed so that:
+   - Node positions remain unchanged
+   - SVG paths remain aligned
+   - Desktop layout remains pixel-perfect
+
+   On smaller screens, the COMPLETE canvas is scaled
+   uniformly.
+*/
+
+/* =========================================
+   RESPONSIVE DIAGRAM CONTAINER
+========================================= */
 
 .architecture-wrapper {
   position: relative;
 
-  width: 820px;
-  height: 560px;
+  /*
+     Desktop canvas dimensions.
 
-  flex-shrink: 0;
+     These dimensions contain the complete diagram,
+     including the right memory node and bottom response node.
+  */
+  width: 860px;
+  height: 600px;
 
-  transform-origin: center;
+  max-width: 100%;
+
+  margin: 0 auto;
+
+  overflow: visible;
 }
 
+/* =========================================
+   FIXED INTERNAL CANVAS
+========================================= */
 
-/* -----------------------------------------
+.architecture-canvas {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  /*
+     IMPORTANT:
+     Keep this fixed.
+
+     All nodes use absolute pixel coordinates
+     based on this canvas.
+  */
+  width: 860px;
+  height: 600px;
+
+  transform-origin: top left;
+}
+
+/* =========================================
    BACKGROUND DOT GRID
------------------------------------------ */
+========================================= */
 
 .architecture-grid {
   position: absolute;
@@ -179,32 +211,28 @@
 
   background-size: 32px 32px;
 
-  background-image:
-    radial-gradient(
-      circle,
-      rgba(132, 180, 75, 0.32) 1px,
-      transparent 1.2px
-    );
+  background-image: radial-gradient(
+    circle,
+    rgba(132, 180, 75, 0.32) 1px,
+    transparent 1.2px
+  );
 
   opacity: 0.52;
 
-  mask-image:
-    radial-gradient(
-      ellipse at center,
-      black 25%,
-      rgba(0, 0, 0, 0.8) 50%,
-      transparent 82%
-    );
+  mask-image: radial-gradient(
+    ellipse at center,
+    black 25%,
+    rgba(0, 0, 0, 0.8) 50%,
+    transparent 82%
+  );
 
-  -webkit-mask-image:
-    radial-gradient(
-      ellipse at center,
-      black 25%,
-      rgba(0, 0, 0, 0.8) 50%,
-      transparent 82%
-    );
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    black 25%,
+    rgba(0, 0, 0, 0.8) 50%,
+    transparent 82%
+  );
 }
-
 
 /* =========================================
    SVG CONNECTORS
@@ -214,8 +242,12 @@
   position: absolute;
   inset: 0;
 
-  width: 100%;
-  height: 100%;
+  /*
+     SVG should use the same physical dimensions
+     as the fixed internal canvas.
+  */
+  width: 860px;
+  height: 600px;
 
   z-index: 1;
 
@@ -223,7 +255,6 @@
 
   overflow: visible;
 }
-
 
 /* -----------------------------------------
    SOLID GREEN CONNECTORS
@@ -238,7 +269,6 @@
 
   vector-effect: non-scaling-stroke;
 }
-
 
 /* -----------------------------------------
    GREEN DOTTED CONNECTORS
@@ -258,7 +288,6 @@
   vector-effect: non-scaling-stroke;
 }
 
-
 /* -----------------------------------------
    LIGHT / WHITE DOTTED CONNECTORS
 ----------------------------------------- */
@@ -273,7 +302,6 @@
   stroke-linecap: round;
 }
 
-
 /* -----------------------------------------
    SVG MARKERS
 ----------------------------------------- */
@@ -286,7 +314,6 @@
   vector-effect: non-scaling-stroke;
 }
 
-
 /* =========================================
    BASE NODE
 ========================================= */
@@ -295,6 +322,7 @@
   position: absolute;
 
   display: flex;
+
   align-items: center;
 
   gap: 18px;
@@ -305,17 +333,15 @@
 
   padding: 18px 26px;
 
-  border:
-    1px solid rgba(185, 195, 185, 0.28);
+  border: 1px solid rgba(185, 195, 185, 0.28);
 
   border-radius: 9px;
 
-  background:
-    linear-gradient(
-      135deg,
-      rgba(18, 25, 25, 0.94),
-      rgba(7, 13, 14, 0.96)
-    );
+  background: linear-gradient(
+    135deg,
+    rgba(18, 25, 25, 0.94),
+    rgba(7, 13, 14, 0.96)
+  );
 
   box-shadow:
     inset 0 0 25px rgba(255, 255, 255, 0.012),
@@ -326,23 +352,21 @@
   color: #e2e2de;
 }
 
-
 /* =========================================
    NODE ICONS
 ========================================= */
 
 .diagram-node svg {
   color: #8bb653;
+
   flex-shrink: 0;
 }
-
 
 /* Tools gets warmer accent */
 
 .tools-node svg {
   color: #b8a32d;
 }
-
 
 /* =========================================
    NODE TYPOGRAPHY
@@ -354,6 +378,7 @@
   font-family: var(--font-display);
 
   font-size: 18px;
+
   font-weight: 500;
 
   letter-spacing: 0.045em;
@@ -361,13 +386,13 @@
   line-height: 1.2;
 }
 
-
 .node-subtitle {
   margin-top: 7px;
 
   color: rgba(220, 220, 215, 0.62);
 
   font-size: 11px;
+
   font-weight: 500;
 
   letter-spacing: 0.17em;
@@ -375,11 +400,9 @@
   line-height: 1.2;
 }
 
-
 /* =========================================
    NODE POSITIONS
 ========================================= */
-
 
 /* -----------------------------------------
    USER QUERY
@@ -399,21 +422,21 @@
   font-family: var(--font-display);
 
   font-size: 16px;
+
   font-weight: 500;
 
   letter-spacing: 0.045em;
 }
-
 
 .user-node span {
   color: rgba(240, 240, 235, 0.9);
 
   font-size: 16px;
+
   font-weight: 500;
 
   letter-spacing: 0.045em;
 }
-
 
 /* -----------------------------------------
    AI AGENT
@@ -428,19 +451,18 @@
 
   padding: 0 34px;
 
-  border-color:
-    rgba(132, 180, 75, 0.72);
+  justify-content: center;
+
+  border-color: rgba(132, 180, 75, 0.72);
 
   box-shadow:
     0 0 38px rgba(94, 140, 46, 0.06),
     inset 0 0 30px rgba(94, 140, 46, 0.025);
 }
 
-
 /* -----------------------------------------
    MIDDLE ROW
 ----------------------------------------- */
-
 
 /* RETRIEVE */
 
@@ -454,7 +476,6 @@
   padding: 0 26px;
 }
 
-
 /* TOOLS */
 
 .tools-node {
@@ -466,7 +487,6 @@
 
   padding: 0 26px;
 }
-
 
 /* MEMORY */
 
@@ -480,7 +500,6 @@
   padding: 0 26px;
 }
 
-
 /* -----------------------------------------
    RESPONSE
 ----------------------------------------- */
@@ -493,67 +512,109 @@
   height: 88px;
 
   padding: 0 34px;
+   
+  justify-content: center;
 
-  border-color:
-    rgba(132, 180, 75, 0.65);
+  border-color: rgba(132, 180, 75, 0.65);
 
   box-shadow:
     0 0 34px rgba(94, 140, 46, 0.05);
 }
-
 
 /* =========================================
    NODE EMPHASIS
 ========================================= */
 
 .agent-node {
-  border-color:
-    rgba(132, 180, 75, 0.72);
+  border-color: rgba(132, 180, 75, 0.72);
 }
-
 
 .response-node {
-  border-color:
-    rgba(132, 180, 75, 0.6);
+  border-color: rgba(132, 180, 75, 0.6);
 }
-
 
 /* =========================================
-   RESPONSIVE
+   RESPONSIVE SCALING
 ========================================= */
 
+/*
+   Desktop:
 
-/* Large tablets */
+   No transform.
 
-@media (max-width: 1100px) {
+   This preserves your currently correct
+   desktop diagram exactly.
+*/
+
+@media (min-width: 861px) {
   .architecture-wrapper {
-    transform: scale(0.88);
-    transform-origin: center;
+    width: 860px;
+    height: 600px;
+  }
+
+  .architecture-canvas {
+    transform: none;
   }
 }
 
+/*
+   Tablet:
 
-/* Tablets */
+   Scale the complete fixed canvas uniformly.
 
-@media (max-width: 900px) {
+   Because both nodes and SVG are inside the same
+   canvas, they scale together and cannot become
+   misaligned.
+*/
+
+@media (max-width: 860px) {
   .architecture-wrapper {
-    transform: scale(0.78);
-    transform-origin: center;
+    width: 100%;
+    height: calc((100vw - 48px) * 600 / 860);
+  }
 
-    margin-top: -65px;
-    margin-bottom: -65px;
+  .architecture-canvas {
+    transform: scale(calc((100vw - 48px) / 860));
   }
 }
 
+/*
+   Mobile:
 
-/* Mobile */
+   Use almost the entire available width while
+   maintaining a small safe margin.
+
+   No individual node resizing occurs.
+   The entire architecture scales as one object.
+*/
 
 @media (max-width: 640px) {
   .architecture-wrapper {
-    transform: scale(0.58);
-    transform-origin: center;
+    width: calc(100vw - 24px);
 
-    margin-top: -130px;
-    margin-bottom: -130px;
+    height: calc((100vw - 24px) * 600 / 860);
+  }
+
+  .architecture-canvas {
+    transform: scale(calc((100vw - 24px) / 860));
+  }
+}
+
+/*
+   Very small devices:
+
+   Maintain a minimum amount of breathing room
+   without causing horizontal clipping.
+*/
+
+@media (max-width: 380px) {
+  .architecture-wrapper {
+    width: calc(100vw - 16px);
+
+    height: calc((100vw - 16px) * 600 / 860);
+  }
+
+  .architecture-canvas {
+    transform: scale(calc((100vw - 16px) / 860));
   }
 }

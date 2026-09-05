@@ -57,6 +57,7 @@
     font-family: Arial, Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 
   h1,
@@ -164,13 +165,9 @@
      These dimensions contain the complete diagram,
      including the right memory node and bottom response node.
   */
-  width: 860px;
-  height: 600px;
-
-  max-width: 100%;
-
+  width: 820px;
+  height: 560px;
   margin: 0 auto;
-
   overflow: visible;
 }
 
@@ -191,9 +188,8 @@
      All nodes use absolute pixel coordinates
      based on this canvas.
   */
-  width: 860px;
-  height: 600px;
-
+  width: 820px;
+  height: 560px;
   transform-origin: top left;
 }
 
@@ -567,14 +563,14 @@
    misaligned.
 */
 
-@media (max-width: 860px) {
+@media (max-width: 768px) {
   .architecture-wrapper {
-    width: 100%;
-    height: calc((100vw - 48px) * 600 / 860);
+    width: 656px;
+    height: 448px;
   }
 
   .architecture-canvas {
-    transform: scale(calc((100vw - 48px) / 860));
+    transform: scale(0.8);
   }
 }
 
@@ -590,16 +586,18 @@
 
 @media (max-width: 640px) {
   .architecture-wrapper {
-    width: calc(100vw - 24px);
-
-    height: calc((100vw - 24px) * 600 / 860);
+    width: 100%;
+    height: auto;
+    aspect-ratio: 820 / 560;
+    overflow: hidden;
   }
 
   .architecture-canvas {
-    transform: scale(calc((100vw - 24px) / 860));
+    transform: scale(
+      calc((100vw - 32px) / 820)
+    );
   }
 }
-
 /*
    Very small devices:
 
@@ -607,14 +605,14 @@
    without causing horizontal clipping.
 */
 
-@media (max-width: 380px) {
+@media (max-width: 400px) {
   .architecture-wrapper {
-    width: calc(100vw - 16px);
-
-    height: calc((100vw - 16px) * 600 / 860);
+    width: 100%;
   }
 
   .architecture-canvas {
-    transform: scale(calc((100vw - 16px) / 860));
+    transform: scale(
+      calc((100vw - 24px) / 820)
+    );
   }
 }

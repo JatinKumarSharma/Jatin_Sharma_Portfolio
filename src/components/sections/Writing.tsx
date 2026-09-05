@@ -110,7 +110,7 @@ function Writing() {
         {/* More Writing */}
         <div className="mt-10">
           <a
-            href="https://www.linkedin.com/in/jatin-sharma-ai-engineer/"
+            href="https://www.linkedin.com/in/jatin-sharma-ai-engineer/recent-activity/all/"
             target="_blank"
             rel="noreferrer"
             className="group inline-flex items-center gap-3 text-sm font-medium text-foreground transition-colors hover:text-accent"

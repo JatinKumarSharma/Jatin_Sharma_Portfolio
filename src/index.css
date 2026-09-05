@@ -584,7 +584,7 @@
    The entire architecture scales as one object.
 */
 
-@media (max-width: 640px) {
+@media (max-width: 320px) {
   .architecture-wrapper {
     width: 100%;
     height: auto;

@@ -1,22 +1,9 @@
 import Container from "../ui/Container";
-
-const contactLinks = [
-  {
-    label: "EMAIL",
-    value: "jatin9427@gmail.com",
-    href: "mailto:jatin9427@gmail.com",
-  },
-  {
-    label: "LINKEDIN",
-    value: "linkedin.com/in/jatin-sharma-ai-engineer",
-    href: "https://www.linkedin.com/in/jatin-sharma-ai-engineer/",
-  },
-  {
-    label: "GITHUB",
-    value: "github.com/JatinKumarSharma",
-    href: "https://github.com/JatinKumarSharma",
-  },
-];
+import {
+  FaGithub,
+  FaLinkedin,
+  FaEnvelope,
+} from "react-icons/fa";
 
 function Contact() {
   return (
@@ -25,6 +12,7 @@ function Contact() {
       className="relative overflow-hidden border-t border-border/40"
     >
       <Container>
+
         {/* Main CTA */}
         <div className="py-28 lg:py-36">
           <div className="mb-6 flex items-center gap-3">
@@ -42,15 +30,19 @@ function Contact() {
 
               <p className="mt-8 max-w-xl text-lg leading-[1.6] text-muted sm:text-xl">
                 Have an interesting problem?{" "}
-                <span className="text-foreground">Let's talk about it.</span>
+                <span className="text-foreground">
+                  Let's talk about it.
+                </span>
               </p>
             </div>
 
+            {/* Direct Email CTA */}
             <a
-              href="mailto:your-email@example.com"
+              href="mailto:jatin9427@gmail.com"
               className="group inline-flex w-fit items-center gap-4 rounded-md bg-accent px-6 py-4 text-sm font-semibold text-white transition-all hover:bg-accent-light"
             >
               Start a conversation
+
               <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">
                 →
               </span>
@@ -59,33 +51,42 @@ function Contact() {
         </div>
 
         {/* Contact Links */}
-        <div className="grid border-t border-border/60 md:grid-cols-3">
-          {contactLinks.map((link, index) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target={link.href.startsWith("http") ? "_blank" : undefined}
-              rel={link.href.startsWith("http") ? "noreferrer" : undefined}
-              className={`group py-8 transition-colors hover:bg-surface md:px-8 ${
-                index !== contactLinks.length - 1
-                  ? "md:border-r md:border-border/60"
-                  : ""
-              }`}
-            >
-              <div className="flex items-center justify-between">
-                <span className="text-[10px] font-semibold tracking-[0.14em] text-accent">
-                  {link.label}
-                </span>
-                <span className="text-subtle transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent">
-                  ↗
-                </span>
-              </div>
+        <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-8 py-10 sm:gap-x-16">
 
-              <p className="mt-4 break-all text-sm text-muted transition-colors group-hover:text-foreground">
-                {link.value}
-              </p>
-            </a>
-          ))}
+          {/* Email */}
+          <a
+            href="mailto:jatin9427@gmail.com"
+            className="group flex items-center gap-3 text-[26px] font-semibold text-foreground/90 transition-all duration-300 hover:text-accent-light"
+            aria-label="Send email to Jatin Sharma"
+          >
+            <FaEnvelope className="text-[28px] transition-transform duration-300 group-hover:scale-110" />
+            <span className="font-semibold">Email</span>
+          </a>
+
+          {/* LinkedIn */}
+          <a
+            href="https://www.linkedin.com/in/jatin-sharma-ai-engineer"
+            target="_blank"
+            rel="noreferrer"
+            className="group flex items-center gap-3 text-[26px] font-semibold text-foreground/90 transition-all duration-300 hover:text-accent-light"
+            aria-label="Visit Jatin Sharma's LinkedIn"
+          >
+            <FaLinkedin className="text-[27px] transition-transform duration-300 group-hover:scale-110" />
+            <span>LinkedIn</span>
+          </a>
+
+          {/* GitHub */}
+          <a
+            href="https://github.com/JatinKumarSharma"
+            target="_blank"
+            rel="noreferrer"
+            className="group flex items-center gap-3 text-[26px] font-semibold text-foreground/90 transition-all duration-300 hover:text-accent-light"
+            aria-label="Visit Jatin Sharma's GitHub"
+          >
+            <FaGithub className="text-[28px] transition-transform duration-300 group-hover:scale-110" />
+            <span>GitHub</span>
+          </a>
+
         </div>
 
         {/* Bottom Footer */}
@@ -93,12 +94,14 @@ function Contact() {
           <span>
             © {new Date().getFullYear()} Jatin Sharma. All rights reserved.
           </span>
+
           <div className="flex items-center gap-2">
             <span>Built with curiosity</span>
             <span className="text-accent">•</span>
             <span>Designed for intelligence</span>
           </div>
         </div>
+
       </Container>
     </footer>
   );

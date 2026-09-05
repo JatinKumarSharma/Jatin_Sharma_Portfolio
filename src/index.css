@@ -561,9 +561,14 @@
 }
 
 
-/* Mobile - scale complete diagram to half */
+/* Desktop architecture diagram */
+.architecture-container {
+  width: 100%;
+}
+
+/* Hide the entire architecture component on mobile */
 @media (max-width: 640px) {
-  .architecture-wrapper {
+  .architecture-container {
     display: none;
   }
 }

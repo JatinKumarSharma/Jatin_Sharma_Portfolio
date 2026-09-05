@@ -66,7 +66,7 @@ function Navbar() {
             </a>
 
             <a
-              href="#contact"
+              href="mailto:jatin9427@gmail.com"
               className="ml-1 inline-flex h-10 items-center gap-2 rounded-md border border-accent/60 px-4 text-sm text-foreground transition-all hover:bg-accent hover:text-white"
             >
               Contact Me

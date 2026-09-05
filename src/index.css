@@ -530,39 +530,24 @@
 }
 
 /* =========================================
-   RESPONSIVE SCALING
+   RESPONSIVE ARCHITECTURE DIAGRAM
 ========================================= */
 
-/*
-   Desktop:
-
-   No transform.
-
-   This preserves your currently correct
-   desktop diagram exactly.
-*/
-
-@media (min-width: 861px) {
+/* Tablets */
+@media (max-width: 900px) {
   .architecture-wrapper {
-    width: 860px;
-    height: 600px;
+    width: 738px;
+    height: 504px;
   }
 
   .architecture-canvas {
-    transform: none;
+    transform: scale(0.9);
+    transform-origin: top left;
   }
 }
 
-/*
-   Tablet:
 
-   Scale the complete fixed canvas uniformly.
-
-   Because both nodes and SVG are inside the same
-   canvas, they scale together and cannot become
-   misaligned.
-*/
-
+/* Medium tablets */
 @media (max-width: 768px) {
   .architecture-wrapper {
     width: 656px;
@@ -571,48 +556,51 @@
 
   .architecture-canvas {
     transform: scale(0.8);
+    transform-origin: top left;
   }
 }
 
-/*
-   Mobile:
 
-   Use almost the entire available width while
-   maintaining a small safe margin.
-
-   No individual node resizing occurs.
-   The entire architecture scales as one object.
-*/
-
-@media (max-width: 320px) {
+/* Mobile - scale complete diagram to half */
+@media (max-width: 640px) {
   .architecture-wrapper {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 820 / 560;
+    width: 410px;
+    height: 280px;
+    max-width: 100%;
+    margin: 0 auto;
     overflow: hidden;
   }
 
   .architecture-canvas {
-    transform: scale(
-      calc((100vw - 32px) / 820)
-    );
+    width: 820px;
+    height: 560px;
+    transform: scale(0.5);
+    transform-origin: top left;
   }
 }
-/*
-   Very small devices:
 
-   Maintain a minimum amount of breathing room
-   without causing horizontal clipping.
-*/
 
-@media (max-width: 400px) {
+/* Smaller phones */
+@media (max-width: 430px) {
   .architecture-wrapper {
-    width: 100%;
+    width: 369px;
+    height: 252px;
   }
 
   .architecture-canvas {
-    transform: scale(
-      calc((100vw - 24px) / 820)
-    );
+    transform: scale(0.45);
+  }
+}
+
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .architecture-wrapper {
+    width: 328px;
+    height: 224px;
+  }
+
+  .architecture-canvas {
+    transform: scale(0.4);
   }
 }

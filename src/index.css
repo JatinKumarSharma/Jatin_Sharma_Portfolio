@@ -574,7 +574,7 @@
   .architecture-canvas {
     width: 820px;
     height: 560px;
-    transform: scale(0.5);
+    transform: scale(0.40);
     transform-origin: top left;
   }
 }

@@ -565,10 +565,3 @@
 .architecture-container {
   width: 100%;
 }
-
-/* Hide the entire architecture component on mobile */
-@media (max-width: 640px) {
-  .architecture-container {
-    display: none;
-  }
-}

@@ -67,8 +67,8 @@ function Hero() {
             </div>
           </div>
 
-          {/* Architecture Diagram — UNCHANGED */}
-          <div className="relative flex min-h-[620px] w-full items-center justify-center">
+          {/* Architecture Diagram */}
+          <div className="relative hidden min-h-[620px] w-full items-center justify-center lg:flex">
             <ArchitectureDiagram />
           </div>
 

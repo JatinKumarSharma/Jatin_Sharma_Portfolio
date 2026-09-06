@@ -66,7 +66,7 @@ function Experience() {
               {/* Period */}
               <div className="flex items-start gap-3">
                 {experience.current && (
-                  <span className="mt-1.5 h-2 w-2 rounded-full bg-accent shadow-[0_0_12px_rgba(94,140,46,0.8)]" />
+                  <span className="relative top-[4px] h-2 w-2 shrink-0 rounded-full bg-accent shadow-[0_0_12px_rgba(94,140,46,0.8)]" />
                 )}
 
                 <span className="text-xs font-medium tracking-[0.1em] text-subtle">

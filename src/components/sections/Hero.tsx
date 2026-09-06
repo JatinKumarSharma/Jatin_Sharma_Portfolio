@@ -25,7 +25,7 @@ function Hero() {
               </span>
             </div>
 
-            <h1 className="font-display text-[42px] font-medium leading-[1.12] tracking-[-0.035em] text-foreground sm:text-5xl lg:text-[52px]">
+            <h1 className="font-display text-[46px] font-medium leading-[1.12] tracking-[-0.035em] text-foreground sm:text-[54px] lg:text-[58px]">
               Building intelligent
               <br />
               systems that
@@ -37,7 +37,7 @@ function Hero() {
               and <span className="text-accent">act.</span>
             </h1>
 
-            <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted">
+            <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 text-[15px] text-muted">
               <span>Agentic AI</span>
               <span className="text-accent">•</span>
               <span>LLM Systems</span>
@@ -45,7 +45,7 @@ function Hero() {
               <span>Generative AI</span>
             </div>
 
-            <p className="mt-5 max-w-md text-[15px] leading-[1.55] text-muted">
+            <p className="mt-6 max-w-lg text-[17px] leading-[1.6] text-muted">
               I design and build production-oriented AI agents,
               LLM applications and retrieval systems
               that solve real-world problems.

@@ -1,5 +1,10 @@
 import Container from "../ui/Container";
 import { Link } from "react-router-dom";
+import {
+  CUSTOMER_VOICE_CASE_STUDY_URL,
+  FINANCIAL_AGENT_LIVE_URL,
+  PROJECTS_REPO_URL,
+} from "../../data/projectLinks";
 
 const projects = [
   {
@@ -10,18 +15,54 @@ const projects = [
     title: "Financial Analyst Agent",
 
     description:
-      "An AI-powered financial analysis system designed to retrieve company information and provide structured financial insights through an API.",
+      "An agent that selects financial tools dynamically and grounds multi-step research in retrieved data — with explicit rules against fabrication when a provider fails.",
 
-    stack: ["Python", "Financial APIs", "FastAPI", "Data Analysis"],
+    stack: [
+      "Python",
+      "FastAPI",
+      "LangChain",
+      "Tool Calling",
+      "Groq · Gemini · Ollama",
+      "OpenBB",
+    ],
 
     // Live deployed application
-    link: "https://financial-analyst-api-fw98.onrender.com/docs",
+    link: FINANCIAL_AGENT_LIVE_URL,
+    status: "LIVE",
 
     // GitHub repository
-    github: "https://github.com/JatinKumarSharma/Agentic_AI_Projects",
+    github: PROJECTS_REPO_URL,
 
     // Internal case study route
     caseStudy: "/case-study/financial-analyst-agent",
+  },
+  {
+    id: "02",
+
+    type: "RESEARCH AGENT",
+
+    title: "Adaptive Customer Voice Interviewer",
+
+    description:
+      "An agentic interviewer that runs adaptive consumer research — generating each question from what it has already learned, instead of following a fixed questionnaire.",
+
+    stack: [
+      "Python",
+      "LangGraph",
+      "LangChain",
+      "Groq",
+      "FastAPI",
+      "Speech-to-Text · TTS",
+    ],
+
+    // Not publicly deployed — card click goes to the case study
+    link: CUSTOMER_VOICE_CASE_STUDY_URL,
+    status: "IN PROGRESS",
+
+    github: PROJECTS_REPO_URL,
+
+    // Internal case study route
+    caseStudy: "/case-study/customer-voice-interviewer",
   },
 ];
 
@@ -60,8 +101,9 @@ function Work() {
           </p>
         </div>
 
-        {/* Featured Project */}
-        {projects.map((project) => (
+        {/* Featured Projects */}
+        <div className="space-y-6">
+          {projects.map((project) => (
           <div
             key={project.id}
             role="link"
@@ -91,7 +133,7 @@ function Work() {
 
                   <span className="flex items-center gap-2 text-[10px] font-semibold tracking-[0.12em] text-muted">
                     <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                    LIVE
+                    {project.status}
                   </span>
                 </div>
 
@@ -152,7 +194,8 @@ function Work() {
               </div>
             </div>
           </div>
-        ))}
+          ))}
+        </div>
 
         {/* Future expansion indicator */}
         <div className="mt-10 flex items-center gap-4">

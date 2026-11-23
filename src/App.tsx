@@ -10,6 +10,8 @@ import Writing from "./components/sections/Writing";
 import Contact from "./components/sections/Contact";
 
 import CaseStudy from "./components/sections/CaseStudy";
+import CustomerVoiceCaseStudy from "./components/sections/CustomerVoiceCaseStudy";
+import EvaluationFramework from "./components/sections/EvaluationFramework";
 
 function Home() {
   return (
@@ -39,6 +41,15 @@ function App() {
           path="/case-study/financial-analyst-agent"
           element={<CaseStudy />}
         />
+
+        {/* Adaptive Customer Voice Interviewer Case Study */}
+        <Route
+          path="/case-study/customer-voice-interviewer"
+          element={<CustomerVoiceCaseStudy />}
+        />
+
+        {/* The 5-D Evaluation Framework */}
+        <Route path="/evaluation-framework" element={<EvaluationFramework />} />
       </Routes>
     </BrowserRouter>
   );

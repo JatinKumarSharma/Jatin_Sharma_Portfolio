@@ -3,27 +3,27 @@ import Container from "../ui/Container";
 const focusAreas = [
   {
     number: "01",
-    title: "Multimodal AI",
+    title: "Multimodal Data",
     description:
-      "Working with text, image, audio and video data across different model training workflows.",
+      "Object, activity and PII segmentation across extensive video datasets for large model training programs.",
   },
   {
     number: "02",
-    title: "LLM Systems",
+    title: "Model Evaluation",
     description:
-      "Exploring language models, retrieval pipelines and production-oriented AI applications.",
+      "Scoring responses on hallucination, factuality, safety, originality, helpfulness and harmlessness — signals used in RLHF and alignment cycles.",
   },
   {
     number: "03",
     title: "Agentic AI",
     description:
-      "Designing systems that combine reasoning, tools, retrieval and structured workflows.",
+      "Tool-calling agents, retrieval pipelines and context engineering, designed with reliability in mind.",
   },
   {
     number: "04",
     title: "Robotics AI",
     description:
-      "Contributing to data preparation and refinement workflows for models that learn actions.",
+      "Action segmentation and instruction-alignment labeling for robotics model training data.",
   },
 ];
 
@@ -47,21 +47,23 @@ function About() {
             </div>
 
             <h2 className="max-w-xl font-display text-4xl font-medium leading-[1.15] tracking-[-0.03em] text-foreground md:text-5xl">
-              Working at the intersection of data, models and intelligent systems.
+              Working at the intersection of data, evaluation and intelligent systems.
             </h2>
 
             <div className="mt-8 max-w-xl space-y-5 text-[15px] leading-[1.75] text-muted">
               <p>
-                I work as an AI-LLM Analyst, contributing to projects involving
-                data preparation, refinement and model training across multiple
-                modalities.
+                For two years I worked as an AI-LLM Analyst at Innodata, producing
+                training data and quality signals for Meta's multimodal model
+                programs — video segmentation, PII labeling, response scoring and
+                robotic-action annotation.
               </p>
 
               <p>
-                Alongside my professional work, I build and explore AI systems
-                focused on LLM applications, retrieval and agentic workflows.
-                My goal is to grow from working with AI models into engineering
-                systems that can reason, retrieve information and take action.
+                My annual performance was rated 4/5 in both precision and
+                productivity, with 100/100 internal and client QA scores on most
+                response-evaluation jobs and a 90+/100 average on robotic-action
+                work. Alongside this work, I build agentic systems — applying the
+                same evaluation mindset to agents that reason, retrieve and act.
               </p>
             </div>
           </div>

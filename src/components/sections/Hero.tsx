@@ -21,7 +21,7 @@ function Hero() {
           <div className="w-full max-w-none lg:pl-0">
             <div className="mb-5 inline-flex rounded-full border border-accent/25 bg-accent/10 px-3 py-1">
               <span className="text-[11px] font-semibold tracking-[0.08em] text-accent">
-                AI ENGINEER
+                AI ENGINEER · DATA & EVALUATION
               </span>
             </div>
 
@@ -38,17 +38,17 @@ function Hero() {
             </h1>
 
             <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 text-[15px] text-muted">
+              <span>Multimodal Data</span>
+              <span className="text-accent">•</span>
+              <span>Model Evaluation</span>
+              <span className="text-accent">•</span>
               <span>Agentic AI</span>
-              <span className="text-accent">•</span>
-              <span>LLM Systems</span>
-              <span className="text-accent">•</span>
-              <span>Generative AI</span>
             </div>
 
             <p className="mt-6 max-w-lg text-[17px] leading-[1.6] text-muted">
-              I design and build production-oriented AI agents,
-              LLM applications and retrieval systems
-              that solve real-world problems.
+              I've spent two years at the data and evaluation layer of
+              large-scale AI programs — scoring model responses and labeling
+              multimodal data — and I build agents that reason, retrieve and act.
             </p>
 
             <div className="mt-7 flex flex-wrap gap-4">

@@ -63,7 +63,7 @@ function CaseStudy() {
               </span>
 
               <span className="mt-2 block text-sm text-foreground">
-                Python · APIFlask
+                Python · FastAPI
               </span>
             </div>
 
@@ -623,7 +623,7 @@ function CaseStudy() {
                   {[
                     {
                       title: "API Layer",
-                      text: "APIFlask provides structured endpoints and automatically generated interactive documentation.",
+                      text: "FastAPI provides structured endpoints and automatically generated interactive documentation.",
                     },
                     {
                       title: "Data Retrieval",
@@ -679,14 +679,15 @@ function CaseStudy() {
 
                 <div className="mt-10 border border-accent/30 bg-accent/[0.03] p-7">
                   <span className="text-[10px] font-semibold tracking-[0.14em] text-accent">
-                    NEXT ITERATION
+                    RELIABILITY &amp; EVALUATION
                   </span>
 
-                  <p className="mt-3 font-display text-l leading-[1.5] text-foreground">
-                    Current implementation demonstrates an LLM-driven tool-calling workflow 
-                    for financial research. The next stage would focus on making the system 
-                    more reliable and measurable through structured query routing, response 
-                    validation, evaluation datasets and execution observability.
+                  <p className="mt-3 font-display text-lg leading-[1.5] text-foreground">
+                    Reliability is designed in, not bolted on: the agent prefers retrieved
+                    tool data over model knowledge, discloses provider limitations instead
+                    of inventing values, and runs a bounded tool loop with explicit error
+                    handling. The next stage is measurement — a question-level eval set,
+                    groundedness checks and execution tracing.
                   </p>
                 </div>
               </section>
@@ -704,7 +705,7 @@ function CaseStudy() {
                 </a>
 
                 <a
-                  href="https://github.com/JatinKumarSharma"
+                  href="https://github.com/JatinKumarSharma/Agentic_AI_Projects"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 border border-border px-5 py-3 text-sm text-muted transition-colors hover:border-accent hover:text-foreground"

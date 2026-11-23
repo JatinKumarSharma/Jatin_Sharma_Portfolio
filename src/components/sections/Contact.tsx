@@ -29,10 +29,13 @@ function Contact() {
               </h2>
 
               <p className="mt-8 max-w-xl text-lg leading-[1.6] text-muted sm:text-xl">
-                Have an interesting problem?{" "}
-                <span className="text-foreground">
-                  Let's talk about it.
-                </span>
+                Open to applied AI roles and collaborations where data quality
+                and agent reliability matter.{" "}
+                <span className="text-foreground">Let's talk.</span>
+              </p>
+
+              <p className="mt-4 text-xs tracking-[0.12em] text-subtle">
+                OPEN TO WORK · NEW DELHI (IST) · REMOTE-FRIENDLY · EVALUATION-FIRST
               </p>
             </div>
 

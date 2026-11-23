@@ -2,30 +2,26 @@ import Container from "../ui/Container";
 
 const experiences = [
   {
-    period: "2024 — PRESENT",
+    period: "JUN 2024 — NOV 2026",
     role: "AI-LLM Analyst",
-    company: "Current Role",
+    company: "Innodata India Pvt. Ltd. · Meta multimodal programs",
     description:
-      "Working across multimodal AI projects involving text, image, audio and video data. Contributing to data preparation, refinement and training workflows, including work supporting robotics models designed to learn and perform actions.",
+      "Produced training-ready multimodal data and evaluation signals for Meta's model programs: segmented objects, activities and PII in video; scored model responses on hallucination, factuality, safety, originality, helpfulness and harmlessness; and labeled robotic actions against instructions. Annual ratings of 4/5 in both precision and productivity, with 100/100 internal and client QA scores on most response-evaluation jobs and a 90+/100 average on robotics work.",
     highlights: [
-      "Multimodal Data",
-      "Model Training",
-      "Data Refinement",
-      "Robotics AI",
+      "Video Segmentation",
+      "Response Scoring",
+      "Robotics Actions",
+      "Precision 4/5",
     ],
-    current: true,
+    current: false,
   },
   {
     period: "2023 — 2024",
     role: "Content Writer",
     company: "AR Group of Education",
     description:
-      "Created structured educational content and developed research and communication skills while working in a fast-paced digital environment.",
-    highlights: [
-      "Research",
-      "Content Strategy",
-      "Communication",
-    ],
+      "Created structured educational content and research material — the documentation and communication foundation behind the annotation guidelines and evaluation rubrics I work with today.",
+    highlights: ["Research", "Technical Writing", "Communication"],
     current: false,
   },
 ];
@@ -111,8 +107,8 @@ function Experience() {
           </span>
 
           <p className="max-w-2xl font-display text-xl leading-[1.5] text-foreground md:text-2xl">
-            Moving from working with AI models toward engineering intelligent
-            systems that can reason, retrieve and act.
+            From building the data behind intelligent models to engineering
+            systems that reason, retrieve and act — with evaluation built in.
           </p>
         </div>
       </Container>

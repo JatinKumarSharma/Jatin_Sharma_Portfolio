@@ -1,10 +1,14 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Container from "../ui/Container";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { Menu, X } from "lucide-react";
 
-const navLinks = [
+type NavLink = { label: string; href?: string; to?: string };
+
+const navLinks: NavLink[] = [
   { label: "Work", href: "#work" },
+  { label: "Evaluation", to: "/evaluation-framework" },
   { label: "About", href: "#about" },
   { label: "Writing", href: "#writing" },
   { label: "Experience", href: "#experience" },
@@ -32,15 +36,25 @@ function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-9 md:flex">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-sm text-muted transition-colors hover:text-foreground"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.to ? (
+                <Link
+                  key={link.label}
+                  to={link.to}
+                  className="text-sm text-muted transition-colors hover:text-foreground"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="text-sm text-muted transition-colors hover:text-foreground"
+                >
+                  {link.label}
+                </a>
+              )
+            )}
           </div>
 
           {/* Desktop Social + Contact */}
@@ -88,16 +102,27 @@ function Navbar() {
           {isOpen && (
             <div className="absolute left-0 right-0 top-20 border border-border bg-[#0d1313]/98 p-5 shadow-2xl backdrop-blur-xl md:hidden">
               <div className="flex flex-col">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    onClick={closeMenu}
-                    className="border-b border-border py-4 text-sm text-muted transition-colors hover:text-accent"
-                  >
-                    {link.label}
-                  </a>
-                ))}
+                {navLinks.map((link) =>
+                  link.to ? (
+                    <Link
+                      key={link.label}
+                      to={link.to}
+                      onClick={closeMenu}
+                      className="border-b border-border py-4 text-sm text-muted transition-colors hover:text-accent"
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      onClick={closeMenu}
+                      className="border-b border-border py-4 text-sm text-muted transition-colors hover:text-accent"
+                    >
+                      {link.label}
+                    </a>
+                  )
+                )}
 
                 <a
                   href="#contact"

@@ -5,8 +5,8 @@
  * same five-question suite against the same provider and model.
  *
  * Only the two dimensions that moved are plotted as lines. The other three
- * held at 5.00 for all four iterations; plotting four overlapping lines at
- * the ceiling would be unreadable and imply movement that did not occur.
+ * held at 5.00 across all five iterations; plotting three overlapping lines
+ * at the ceiling would be unreadable and imply movement that did not occur.
  */
 const iterations = [
   { id: "v0", label: "Baseline", x: 56 },

@@ -117,6 +117,13 @@ const evalIterations = [
     change: "Added a worked example of a good refusal to the system prompt.",
     moved: "Helpfulness 4.60 → 4.40. Regression caught. Reverted.",
   },
+  {
+    id: "v4",
+    title: "Deterministic guardrails",
+    found: "The prompt stayed at v2. A code layer normalizes the provider's fractional percentage and upgrades a bare refusal with a reason and a data-grounded alternative — independent of what the model was told.",
+    change: "Added guardrails.py: tool-boundary percentage normalization, a percentage check and a refusal check. 7/7 deterministic tests passed against strings from earlier traces.",
+    moved: "Helpfulness 4.40 → 4.80 · Q4 changed for the first time. Factuality 5.00 → 4.80: a new unguarded claim ('above its 52-week high') was false. Logged, not hidden.",
+  },
 ];
 
 function EvaluationFramework() {
@@ -595,9 +602,9 @@ function EvaluationFramework() {
                 </div>
 
                 <p className="mt-5 max-w-3xl text-[13px] leading-[1.8] text-subtle">
-                  One fixed five-question suite, run four times against the same provider and model. Only the system prompt
-                  changed. Scores are per-dimension averages across the suite. Full traces, prompts and per-question scoring
-                  are in the evaluation log.
+                  One fixed five-question suite, run five times against the same provider and model. v0–v3 changed only the
+                  system prompt; v4 kept that prompt and added deterministic code-level guardrails, so scores stay comparable.
+                  These are per-dimension averages, not an aggregate. Full traces and scoring are in the evaluation log.
                 </p>
 
                 {/* Iteration log */}
@@ -643,7 +650,7 @@ function EvaluationFramework() {
                     <p className="mt-3 text-[14px] leading-[1.8] text-muted">
                       The ethnicity probe produced the same bare refusal after two structurally different prompt fixes —
                       a rule and a few-shot example. That is evidence the behaviour is model-level, not a missing
-                      instruction. More prompt text would be guesswork.
+                      instruction. A deterministic guardrail changed the visible answer on its first attempt.
                     </p>
                   </div>
                   <div className="border border-border/60 bg-surface p-6">
@@ -651,9 +658,10 @@ function EvaluationFramework() {
                       THE DECISION
                     </span>
                     <p className="mt-3 text-[14px] leading-[1.8] text-muted">
-                      Iteration 3 also regressed a second question. It was reverted. <span className="text-foreground">v2 is
-                      the deployed prompt</span> — the version that fixed the measured error without trading away another
-                      dimension. A regression caught is worth as much as an improvement made.
+                      Iteration 3 also regressed a second question. It was reverted. The deployed system is the{" "}
+                      <span className="text-foreground">v2 prompt plus the v4 guardrail layer</span> — a prompt is an
+                      instruction a model can ignore; a guardrail is code that runs regardless. A regression caught is
+                      worth as much as an improvement made.
                     </p>
                   </div>
                 </div>

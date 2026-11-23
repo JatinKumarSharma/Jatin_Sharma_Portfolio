@@ -1,7 +1,7 @@
 /**
  * Progress chart for the 5-D evaluation loop.
  *
- * Data: eval-runs/EVAL_LOG.md — suite averages from four real runs of the
+ * Data: eval-runs/EVAL_LOG.md — suite averages from five real runs of the
  * same five-question suite against the same provider and model.
  *
  * Only the two dimensions that moved are plotted as lines. The other three
@@ -10,25 +10,28 @@
  */
 const iterations = [
   { id: "v0", label: "Baseline", x: 56 },
-  { id: "v1", label: "Fix 1", x: 264 },
-  { id: "v2", label: "Fix 2", x: 472 },
-  { id: "v3", label: "Fix 3", x: 680 },
+  { id: "v1", label: "Fix 1", x: 212 },
+  { id: "v2", label: "Fix 2", x: 368 },
+  { id: "v3", label: "Fix 3", x: 524 },
+  { id: "v4", label: "Guardrails", x: 680 },
 ];
 
 const series = [
   {
     name: "Factuality",
     color: "#79a848",
-    values: [4.6, 5.0, 5.0, 5.0],
-    ys: [104, 24, 24, 24],
-    labels: ["4.60", "5.00", "5.00", "5.00"],
+    dashed: false,
+    values: [4.6, 5.0, 5.0, 5.0, 4.8],
+    ys: [104, 24, 24, 24, 64],
+    labels: ["4.60", "5.00", "5.00", "5.00", "4.80"],
   },
   {
     name: "Helpfulness",
-    color: "#5e8c2e",
-    values: [4.2, 4.6, 4.6, 4.4],
-    ys: [184, 104, 104, 144],
-    labels: ["4.20", "4.60", "4.60", "4.40"],
+    color: "#e0a34a",
+    dashed: true,
+    values: [4.2, 4.6, 4.6, 4.4, 4.8],
+    ys: [184, 104, 104, 144, 64],
+    labels: ["4.20", "4.60", "4.60", "4.40", "4.80"],
   },
 ];
 
@@ -55,7 +58,7 @@ function EvalProgressChart() {
         viewBox="0 0 720 268"
         className="mt-5 h-auto w-full"
         role="img"
-        aria-label="Line chart showing Factuality rising from 4.60 to 5.00 and Helpfulness rising from 4.20 to 4.60 before dipping to 4.40 across four iterations"
+        aria-label="Line chart across five iterations. Solid green line: Factuality rising from 4.60 to 5.00, then dipping to 4.80. Dashed amber line: Helpfulness rising from 4.20 to 4.60, dipping to 4.40, then rising to 4.80."
       >
         {/* grid */}
         {grid.map((row) => (
@@ -109,6 +112,7 @@ function EvalProgressChart() {
               strokeWidth="2.5"
               strokeLinejoin="round"
               strokeLinecap="round"
+              strokeDasharray={line.dashed ? "8 5" : undefined}
             />
             {line.ys.map((y, index) => (
               <g key={`${line.name}-${index}`}>
@@ -140,10 +144,17 @@ function EvalProgressChart() {
       <div className="mt-3 flex flex-wrap gap-x-6 gap-y-2 border-t border-border/50 pt-4">
         {series.map((line) => (
           <div key={line.name} className="flex items-center gap-2">
-            <span
-              className="inline-block h-[2px] w-5"
-              style={{ backgroundColor: line.color }}
-            />
+            <svg width="20" height="8" aria-hidden="true">
+              <line
+                x1="0"
+                y1="4"
+                x2="20"
+                y2="4"
+                stroke={line.color}
+                strokeWidth="2"
+                strokeDasharray={line.dashed ? "4 3" : undefined}
+              />
+            </svg>
             <span className="text-xs text-muted">{line.name}</span>
           </div>
         ))}

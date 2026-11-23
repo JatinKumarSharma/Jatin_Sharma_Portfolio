@@ -131,7 +131,7 @@ Judge safety holistically. Certain content forces a low score regardless of othe
 
 ## Agent evaluation section — completed
 
-The **Financial Research Assistant** (Groq · `openai/gpt-oss-20b` · OpenBB/FMP) was run with a fixed five-question suite across four prompt iterations. Full traces, prompts, per-question scores and the change log live in `eval-runs/EVAL_LOG.md`.
+The **Financial Research Assistant** (Groq · `openai/gpt-oss-20b` · OpenBB/FMP) was run with a fixed five-question suite across four prompt iterations plus one guardrail iteration. Full traces, prompts, per-question scores and the change log live in `eval-runs/EVAL_LOG.md`.
 
 ### The origin finding
 
@@ -141,19 +141,20 @@ Scored as **Factuality 4**, not Hallucination — the number originated in the t
 
 ### Progression — suite average, identical questions at every iteration
 
-| Dimension | v0 | v1 | v2 | v3 | Net |
-|---|---:|---:|---:|---:|---|
-| Hallucination | 5.00 | 5.00 | 5.00 | 5.00 | held |
-| **Factuality** | **4.60** | **5.00** | 5.00 | 5.00 | **+0.40** |
-| Originality | 5.00 | 5.00 | 5.00 | 5.00 | held |
-| **Helpfulness** | **4.20** | **4.60** | 4.60 | **4.40** | **+0.20**, regression caught |
-| Harmlessness | 5.00 | 5.00 | 5.00 | 5.00 | held |
+| Dimension | v0 | v1 | v2 | v3 | v4 | Net vs v0 |
+|---|---:|---:|---:|---:|---:|---:|
+| Hallucination | 5.00 | 5.00 | 5.00 | 5.00 | 5.00 | held |
+| **Factuality** | **4.60** | **5.00** | 5.00 | 5.00 | **4.80** | **+0.20** |
+| Originality | 5.00 | 5.00 | 5.00 | 5.00 | 5.00 | held |
+| **Helpfulness** | **4.20** | **4.60** | 4.60 | **4.40** | **4.80** | **+0.60** |
+| Harmlessness | 5.00 | 5.00 | 5.00 | 5.00 | 5.00 | held |
 
 - **v1:** added rules 12 (use percentage fields as returned) and 13 (try an alternative tool after an empty search). Factuality 4.60 → 5.00; Helpfulness 4.20 → 4.60; held on a second question with a different wrong value.
 - **v2:** added rule 14 (explain ethical refusals, offer an alternative). No movement — negative result recorded.
-- **v3:** added a few-shot refusal example. Still no movement on the target behaviour, and a regression on an unrelated question (Helpfulness 4.60 → 4.40). Reverted. **v2 is the deployed prompt.**
+- **v3:** added a few-shot refusal example. Still no movement on the target behaviour, and a regression on an unrelated question (Helpfulness 4.60 → 4.40). Reverted.
+- **v4:** kept the v2 prompt unchanged and added deterministic guardrails in code — tool-boundary percentage normalization, a percentage check and a refusal check. The refusal behaviour changed for the first time (Helpfulness → 4.80), but a new unguarded claim regressed Factuality to 4.80. 7/7 code-level tests passed. **The v2 prompt plus the v4 guardrail layer is deployed.**
 
-Three dimensions held at 5.00 throughout — evidence the fixes did not trade away other qualities. Two differently-structured prompt fixes failed to move the refusal behaviour, which is evidence that issue is model-level rather than a missing instruction.
+Three dimensions held at or near ceiling throughout — evidence the fixes did not trade away other qualities systematically. Two differently-structured prompt fixes failed to move the refusal behaviour; a guardrail changed it on the first attempt. That is the evidence this issue is architectural rather than a missing instruction.
 
 ### The bridge — response scoring to agent evaluation
 
@@ -174,7 +175,7 @@ Three dimensions held at 5.00 throughout — evidence the fixes did not trade aw
 - Nav link: `src/components/layout/Navbar.tsx`
 - PDF: `public/Agent_Eval_Checklist.pdf`
 - Captured agent-run guide: `AGENT_RUN_CAPTURE.md`
-- Evaluation log + raw traces: `eval-runs/EVAL_LOG.md`, `eval-runs/eval_suite_v0..v3.json`, `eval-runs/eval_suite.py`
+- Evaluation log + raw traces: `eval-runs/EVAL_LOG.md`, `eval-runs/eval_suite_v0..v4.json`, `eval-runs/eval_suite.py`, `eval-runs/guardrails_test.py`
 - This source doc: `EVALUATION_FRAMEWORK.md`
 
 ---
@@ -199,8 +200,8 @@ Each post links back to `/evaluation-framework` and offers the PDF checklist.
 - [x] Rubric specified from memory
 - [x] Portfolio page built
 - [x] PDF checklist generated
-- [x] Real agent runs captured with full tool traces (four iterations, five questions each)
+- [x] Real agent runs captured with full tool traces (five iterations, five questions each)
 - [x] Runs scored on all five dimensions; progression charted and embedded in section 5
-- [x] Negative results and the v3 regression documented; v2 selected as final
-- [ ] `CUSTOMER_VOICE_LIVE_URL` in `src/data/projectLinks.ts` still points to GitHub — replace before publishing
-- [ ] Published to GitHub / Vercel
+- [x] Negative results, the v3 regression and the v4 guardrail trade-off documented; v2 prompt + v4 guardrails deployed
+- [x] `CUSTOMER_VOICE_LIVE_URL` removed; Customer Voice card and case study honestly marked in progress
+- [x] Published to GitHub / Vercel

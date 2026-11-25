@@ -1,11 +1,11 @@
 /**
  * Progress chart for the 5-D evaluation loop.
  *
- * Data: eval-runs/EVAL_LOG.md — suite averages from five real runs of the
+ * Data: eval-runs/EVAL_LOG.md — suite averages from six real runs of the
  * same five-question suite against the same provider and model.
  *
  * Only the two dimensions that moved are plotted as lines. The other three
- * held at 5.00 across all five iterations; plotting three overlapping lines
+ * held at 5.00 across all six iterations; plotting three overlapping lines
  * at the ceiling would be unreadable and imply movement that did not occur.
  */
 const iterations = [
@@ -14,6 +14,7 @@ const iterations = [
   { id: "v2", label: "Fix 2", x: 368 },
   { id: "v3", label: "Fix 3", x: 524 },
   { id: "v4", label: "Guardrails", x: 680 },
+  { id: "v5", label: "Boundaries", x: 794 },
 ];
 
 const series = [
@@ -21,17 +22,17 @@ const series = [
     name: "Factuality",
     color: "#79a848",
     dashed: false,
-    values: [4.6, 5.0, 5.0, 5.0, 4.8],
-    ys: [104, 24, 24, 24, 64],
-    labels: ["4.60", "5.00", "5.00", "5.00", "4.80"],
+    values: [4.6, 5.0, 5.0, 5.0, 4.8, 5.0],
+    ys: [104, 24, 24, 24, 64, 24],
+    labels: ["4.60", "5.00", "5.00", "5.00", "4.80", "5.00"],
   },
   {
     name: "Helpfulness",
     color: "#e0a34a",
     dashed: true,
-    values: [4.2, 4.6, 4.6, 4.4, 4.8],
-    ys: [184, 104, 104, 144, 64],
-    labels: ["4.20", "4.60", "4.60", "4.40", "4.80"],
+    values: [4.2, 4.6, 4.6, 4.4, 4.8, 4.8],
+    ys: [184, 104, 104, 144, 64, 64],
+    labels: ["4.20", "4.60", "4.60", "4.40", "4.80", "4.80"],
   },
 ];
 
@@ -55,17 +56,17 @@ function EvalProgressChart() {
       </div>
 
       <svg
-        viewBox="0 0 720 268"
+        viewBox="0 0 840 268"
         className="mt-5 h-auto w-full"
         role="img"
-        aria-label="Line chart across five iterations. Solid green line: Factuality rising from 4.60 to 5.00, then dipping to 4.80. Dashed amber line: Helpfulness rising from 4.20 to 4.60, dipping to 4.40, then rising to 4.80."
+        aria-label="Line chart across six iterations. Solid green line: Factuality rising from 4.60 to 5.00, dipping to 4.80, then recovering to 5.00. Dashed amber line: Helpfulness rising from 4.20 to 4.60, dipping to 4.40, then rising to 4.80 and holding."
       >
         {/* grid */}
         {grid.map((row) => (
           <g key={row.value}>
             <line
               x1="56"
-              x2="680"
+              x2="794"
               y1={row.y}
               y2={row.y}
               stroke="#25302a"

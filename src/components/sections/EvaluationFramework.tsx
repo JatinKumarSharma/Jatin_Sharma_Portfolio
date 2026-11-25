@@ -124,6 +124,13 @@ const evalIterations = [
     change: "Added guardrails.py: tool-boundary percentage normalization, a percentage check and a refusal check. 7/7 deterministic tests passed against strings from earlier traces.",
     moved: "Helpfulness 4.40 → 4.80 · Q4 changed for the first time. Factuality 5.00 → 4.80: a new unguarded claim ('above its 52-week high') was false. Logged, not hidden.",
   },
+  {
+    id: "v5",
+    title: "Capability boundaries + loop recovery",
+    found: "A live session drifted off-role, claimed no prior-chat memory unclearly, and ended a Tata Steel history question with the raw 'maximum number of tool iterations' message. The trace showed empty searches and FMP subscription restrictions with no historical-price tool available.",
+    change: "Added deterministic capability/scope checks, normalized tool failures, a historical-price tool, a no-progress breaker and an honest iteration fallback. 15/15 deterministic checks passed.",
+    moved: "Factuality 4.80 → 5.00 · Helpfulness held at 4.80. The raw loop message is gone; supported tickers get real OHLC history, unsupported tickers get a bounded honest answer.",
+  },
 ];
 
 function EvaluationFramework() {
@@ -602,8 +609,8 @@ function EvaluationFramework() {
                 </div>
 
                 <p className="mt-5 max-w-3xl text-[13px] leading-[1.8] text-subtle">
-                  One fixed five-question suite, run five times against the same provider and model. v0–v3 changed only the
-                  system prompt; v4 kept that prompt and added deterministic code-level guardrails, so scores stay comparable.
+                  One fixed five-question suite, run six times against the same provider and model. v0–v3 changed only the
+                  system prompt; v4 and v5 kept that prompt and added deterministic code-level guardrails, so scores stay comparable.
                   These are per-dimension averages, not an aggregate. Full traces and scoring are in the evaluation log.
                 </p>
 
@@ -658,10 +665,10 @@ function EvaluationFramework() {
                       THE DECISION
                     </span>
                     <p className="mt-3 text-[14px] leading-[1.8] text-muted">
-                      Iteration 3 also regressed a second question. It was reverted. The deployed system is the{" "}
-                      <span className="text-foreground">v2 prompt plus the v4 guardrail layer</span> — a prompt is an
-                      instruction a model can ignore; a guardrail is code that runs regardless. A regression caught is
-                      worth as much as an improvement made.
+                      Iteration 3 also regressed a second question. It was reverted. The current configuration is{" "}
+                      <span className="text-foreground">v5 — the v2 prompt base with the v4 + v5 guardrail layers</span>{" "}
+                      — a prompt is an instruction a model can ignore; a guardrail is code that runs regardless. A regression
+                      caught is worth as much as an improvement made.
                     </p>
                   </div>
                 </div>

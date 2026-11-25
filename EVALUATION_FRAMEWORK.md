@@ -153,7 +153,7 @@ Scored as **Factuality 4**, not Hallucination — the number originated in the t
 - **v2:** added rule 14 (explain ethical refusals, offer an alternative). No movement — negative result recorded.
 - **v3:** added a few-shot refusal example. Still no movement on the target behaviour, and a regression on an unrelated question (Helpfulness 4.60 → 4.40). Reverted.
 - **v4:** kept the v2 prompt unchanged and added deterministic guardrails in code — tool-boundary percentage normalization, a percentage check and a refusal check. The refusal behaviour changed for the first time (Helpfulness → 4.80), but a new unguarded claim regressed Factuality to 4.80. 7/7 code-level tests passed.
-- **v5:** a live session exposed role drift, unclear capability/memory boundaries and a tool loop on a historical-price question. v5 added deterministic capability/scope checks, normalized tool failures, a historical-price tool, a no-progress breaker and an honest iteration fallback. The raw “maximum number of tool iterations” message is gone. 15/15 deterministic checks passed; the fixed suite held at Help 4.80 and Factuality recovered to 5.00. **v5 is the selected configuration; it becomes the deployed version after these changes are pushed and the service build succeeds.**
+- **v5:** a live session exposed role drift, unclear capability/memory boundaries and a tool loop on a historical-price question. v5 added deterministic capability/scope checks, normalized tool failures, a historical-price tool, a no-progress breaker and an honest iteration fallback. The raw “maximum number of tool iterations” message is gone. 15/15 deterministic checks passed; the fixed suite held at Help 4.80 and Factuality recovered to 5.00. **v5 is the deployed scored baseline. v6 extends it with multi-source evidence tools and is documented separately; the fixed five-question suite remains v0–v5 so scores stay comparable.**
 
 Three dimensions held at or near ceiling throughout — evidence the fixes did not trade away other qualities systematically. Two differently-structured prompt fixes failed to move the refusal behaviour; a guardrail changed it on the first attempt. That is the evidence this issue is architectural rather than a missing instruction. v5 repeated the pattern: capability boundaries and loop recovery were fixed in code, not by asking the model harder.
 
@@ -204,6 +204,6 @@ Each post links back to `/evaluation-framework` and offers the PDF checklist.
 - [x] PDF checklist generated
 - [x] Real agent runs captured with full tool traces (six iterations, five questions each)
 - [x] Runs scored on all five dimensions; progression charted and embedded in section 5
-- [x] Negative results, the v3 regression, the v4 guardrail trade-off and the v5 tool-loop finding documented; v5 configuration selected and locally verified
+- [x] Negative results, the v3 regression, the v4 guardrail trade-off and the v5 tool-loop finding documented; v5 deployed as the scored baseline and v6 source-expansion traces recorded separately
 - [x] `CUSTOMER_VOICE_LIVE_URL` removed; Customer Voice card and case study honestly marked in progress
 - [x] Published to GitHub / Vercel

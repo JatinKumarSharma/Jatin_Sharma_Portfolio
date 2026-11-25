@@ -665,10 +665,11 @@ function EvaluationFramework() {
                       THE DECISION
                     </span>
                     <p className="mt-3 text-[14px] leading-[1.8] text-muted">
-                      Iteration 3 also regressed a second question. It was reverted. The current configuration is{" "}
-                      <span className="text-foreground">v5 — the v2 prompt base with the v4 + v5 guardrail layers</span>{" "}
-                      — a prompt is an instruction a model can ignore; a guardrail is code that runs regardless. A regression
-                      caught is worth as much as an improvement made.
+                      Iteration 3 also regressed a second question. It was reverted. The scored baseline is{" "}
+                      <span className="text-foreground">v5 — the v2 prompt base with the v4 + v5 guardrail layers</span>
+                      . The deployed assistant extends it with v6 multi-source evidence tools; that separate trace suite is
+                      not mixed into the fixed comparison. A prompt is an instruction a model can ignore; a guardrail is code
+                      that runs regardless. A regression caught is worth as much as an improvement made.
                     </p>
                   </div>
                 </div>

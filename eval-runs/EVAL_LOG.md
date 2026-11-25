@@ -351,10 +351,13 @@ Suite average per dimension, identical five-question suite at every iteration:
 - Three dimensions stayed at or near ceiling throughout. That is evidence the fixes did not trade one quality for another systematically.
 - v5 turned a raw tool-loop error into an honest bounded answer and added a real historical-price capability where the provider supports the ticker.
 
-**Final decision:** deploy **v5** — the v2 prompt base with the v4 guardrails plus
+**Scored baseline:** **v5** — the v2 prompt base with the v4 guardrails plus
 v5 capability/scope boundaries, normalized tool failures, loop recovery and the
 historical-price tool. Revert v3. Keep the guardrail set small and add new
-checks only when a trace justifies them.
+checks only when a trace justifies them. **v6** is the current deployed
+extension: it adds SEC, FRED, structured-statement and allowlisted web evidence
+with a deterministic minimum-sufficient call ceiling. Its separate trace suite
+is not mixed into the fixed five-question scores.
 
 ---
 

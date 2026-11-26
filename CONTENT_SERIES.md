@@ -285,7 +285,7 @@ I am not claiming a new 5-D average for v6. The fixed five-question suite stays 
 
 Minimum sufficiency is an evaluation target, not just a cost slogan. If the answer needs one source, one call is the correct behaviour. More is not more rigorous.
 
----ac
+---
 
 ## Reusable snippets
 

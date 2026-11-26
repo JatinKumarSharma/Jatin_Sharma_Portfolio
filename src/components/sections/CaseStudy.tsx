@@ -41,7 +41,7 @@ function CaseStudy() {
             <p className="mt-8 max-w-2xl text-lg leading-[1.7] text-muted">
               A production-oriented financial information system designed to
               retrieve company data and transform it into structured, accessible
-              financial insights through an API.
+              financial insights with evidence-aware responses.
             </p>
           </div>
 

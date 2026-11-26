@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Container from "../ui/Container";
 
 const articles = [
@@ -148,18 +149,25 @@ function Writing() {
         </div>
 
         {/* More Writing */}
-        <div className="mt-10">
-          <a
-            href="https://www.linkedin.com/in/jatin-sharma-ai-engineer/recent-activity/all/"
-            target="_blank"
-            rel="noreferrer"
+        <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
+          <Link
+            to="/writing"
             className="group inline-flex items-center gap-3 text-sm font-medium text-foreground transition-colors hover:text-accent"
           >
-            Explore more ideas on LinkedIn
+            Explore all field notes
 
             <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">
               →
             </span>
+          </Link>
+
+          <a
+            href="https://www.linkedin.com/in/jatin-sharma-ai-engineer/recent-activity/all/"
+            target="_blank"
+            rel="noreferrer"
+            className="text-sm text-muted transition-colors hover:text-accent"
+          >
+            More on LinkedIn ↗
           </a>
         </div>
       </Container>

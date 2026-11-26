@@ -25,6 +25,46 @@ const articles = [
     topic: "LLMs · Emergence · Intelligent Systems",
     link: "https://www.linkedin.com/posts/jatin-sharma-ai-engineer_artificialintelligence-generativeai-llm-activity-7484263991582720000-L4V5?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD1KcC4B53btQvFH__LDRQizIyaT_gKbyks",
   },
+  {
+    category: "EVALUATION",
+    title: "The Answer Looked Fine. The Trace Wasn't.",
+    description:
+      "How a percentage mismatch in one recorded run distinguished a hallucination deduction from a factuality deduction.",
+    topic: "Trace Review · Factuality · 5-D Framework",
+    link: "https://www.linkedin.com/feed/update/urn:li:share:7531567261304762368/",
+  },
+  {
+    category: "PROMPTING",
+    title: "Two Prompt Rewrites, Zero Behaviour Change",
+    description:
+      "Why rewriting the prompt again did not fix a scope failure, and what the frozen five-question suite revealed.",
+    topic: "Prompting · Capability Scope · Evaluation",
+    link: "https://www.linkedin.com/feed/update/urn:li:activity:7531567261959163904/",
+  },
+  {
+    category: "GUARDRAILS",
+    title: "A Guardrail Fixed One Answer and Exposed Another",
+    description:
+      "How a deterministic check improved one question while leaving another unchanged, and why that result is still useful.",
+    topic: "Deterministic Guardrails · Helpfulness · Trace Evidence",
+    link: "https://www.linkedin.com/feed/update/urn:li:activity:7531567485452623872/",
+  },
+  {
+    category: "TOOL USE",
+    title: "A Tool Loop Is Usually a Missing Capability",
+    description:
+      "What repeated quote-tool calls revealed about scope boundaries, and how a historical-price tool changed the loop.",
+    topic: "Agent Loops · Tool Design · Scope",
+    link: "https://www.linkedin.com/feed/update/urn:li:activity:7531567608819781632/",
+  },
+  {
+    category: "AGENT ARCHITECTURE",
+    title: "Minimum Sufficient Tools: The Cheapest Call Is the One You Don't Make",
+    description:
+      "Five deployed traces showing how source breadth increased without tool sprawl, with calls held below deterministic ceilings.",
+    topic: "Tool Selection · Evidence Sources · Cost",
+    link: "https://www.linkedin.com/feed/update/urn:li:activity:7531567715988303872/",
+  },
 ];
 
 function Writing() {

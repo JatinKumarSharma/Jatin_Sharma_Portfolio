@@ -1,4 +1,7 @@
-# React + TypeScript + Vite
+# Jatin Sharma — AI Portfolio
+
+React + TypeScript + Vite portfolio for AI/data evaluation and agentic engineering work.
+Evaluation methodology and versioned results: [EVALUATION_FRAMEWORK.md](./EVALUATION_FRAMEWORK.md).
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
@@ -37,7 +40,6 @@ export default defineConfig([
         project: ['./tsconfig.node.json', './tsconfig.app.json'],
         tsconfigRootDir: import.meta.dirname,
       },
-      // other options...
     },
   },
 ])
@@ -56,10 +58,9 @@ export default defineConfig([
   {
     files: ['**/*.{ts,tsx}'],
     extends: [
-      // Other configs...
-      // Enable lint rules for React
+      // Add this for React hooks linting
       reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
+      // Add this for React DOM linting
       reactDom.configs.recommended,
     ],
     languageOptions: {
@@ -67,7 +68,6 @@ export default defineConfig([
         project: ['./tsconfig.node.json', './tsconfig.app.json'],
         tsconfigRootDir: import.meta.dirname,
       },
-      // other options...
     },
   },
 ])

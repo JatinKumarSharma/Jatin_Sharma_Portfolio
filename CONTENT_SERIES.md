@@ -147,7 +147,7 @@ That honest trade is why I do not call guardrails a fix-all. They are right for 
 
 ### Long-form draft
 
-After two failed prompt interventions on the refusal question, I added `guardrails.px`. The v4 system prompt was the same as v2. The difference was code that ran after the tool result and after the model answer.
+After two failed prompt interventions on the refusal question, I added `guardrails.py`. The v4 system prompt was the same as v2. The difference was code that ran after the tool result and after the model answer.
 
 The first check normalized the quote tool's fractional percentage into an explicit display value. The second replaced or flagged a stated percentage that did not match a tool-verified value. The third took a bare refusal and appended a one-sentence reason plus a legitimate alternative.
 
@@ -157,7 +157,7 @@ The fixed suite then gave a mixed result.
 
 Q4 changed for the first time. The model still emitted the bare refusal, but the guardrail added the missing reason and alternative. Helpfulness rose from **3 to 5**. This was direct evidence that the behaviour lived outside the prompt.
 
-Q5 exposed a new error. The answer said Apple was "trading well above its 52-week high." The tool data showed `last_price: 352.08 and `year_high: 360.83`. The claim was false, so Factuality fell from **5 to 4**. Suite-level movement was Helpfulness **+0.20**, and Factuality **−0.20**.
+Q5 exposed a new error. The answer said Apple was "trading well above its 52-week high." The tool data showed `last_price: 352.08` and `year_high: 360.83`. The claim was false, so Factuality fell from **5 to 4**. Suite-level movement was Helpfulness **+0.20** and Factuality **−0.20**.
 
 I could have reported only the refusal improvement. That would have been misleading. The guarded field improved while an unguarded claim regressed in the same run.
 
@@ -285,7 +285,7 @@ I am not claiming a new 5-D average for v6. The fixed five-question suite stays 
 
 Minimum sufficiency is an evaluation target, not just a cost slogan. If the answer needs one source, one call is the correct behaviour. More is not more rigorous.
 
----
+---ac
 
 ## Reusable snippets
 

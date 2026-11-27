@@ -18,7 +18,7 @@ I build agentic systems the way I was trained to evaluate them: with evidence, g
 
 The evaluation side of my work is specific. I scored model responses on hallucination, factuality, safety, originality, helpfulness and harmlessness, producing per-dimension signals consumed by engineering teams in RLHF and alignment cycles — 100/100 on internal and client QA across most jobs. I segmented and labeled robotic actions against instructions at a 90+/100 average, and worked on video object, activity and PII segmentation. Annual performance was rated 4/5 in both precision and productivity.
 
-My title was AI-LLM Analyst, but the work was closer to evaluation engineering. I didn't just label outputs — I applied rubrics, calibrated against quality benchmarks and fed signals back into model improvement. Alongside that work I built and deployed two agents: a tool-calling financial research API that grounds answers in retrieved data and handles provider failures honestly, and a LangGraph interviewer that generates each question from what it has already learned, with structured evidence tracking and adaptive termination.
+My title was AI-LLM Analyst, but the work was closer to evaluation engineering. I didn't just label outputs — I applied rubrics, calibrated against quality benchmarks and fed signals back into model improvement. Alongside that work I built and deployed two agents: a tool-calling financial research assistant — a complete AI model with compatibility with other popular LLM models — that grounds answers in retrieved data and handles provider failures honestly, and a LangGraph interviewer that generates each question from what it has already learned, with structured evidence tracking and adaptive termination.
 
 I'd welcome the chance to discuss how this combination — data quality, model evaluation and hands-on agent engineering — could help [Team/Company] with [specific problem or goal from the job description]. Would a 20-minute conversation be useful?
 
@@ -26,7 +26,7 @@ Thank you for your time and consideration.
 
 Sincerely,
 Jatin Sharma
-New Delhi · jatin9427@gmail.com · [LinkedIn] · [Portfolio]
+New Delhi · jatin9427@gmail.com · [LinkedIn](https://www.linkedin.com/in/jatin-sharma-ai-engineer) · [Portfolio](https://jatin-sharma-portfolio-ten.vercel.app/)
 ```
 
 ---
@@ -49,7 +49,7 @@ The thing I notice in most agent products is that the demo works and nobody can 
 I'd be glad to share a short eval checklist I use for tool-calling agents — no pitch. Would it be useful to compare notes for 20 minutes?
 
 Jatin
-[LinkedIn] · [Portfolio]
+[LinkedIn](https://www.linkedin.com/in/jatin-sharma-ai-engineer) · [Portfolio](https://jatin-sharma-portfolio-ten.vercel.app/)
 ```
 
 **Why this works:** it leads with proof, not interest; it gives before it asks; the ask is 20 minutes, not a job.

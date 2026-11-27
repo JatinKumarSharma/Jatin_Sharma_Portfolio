@@ -44,7 +44,7 @@ That work taught me what most agent builders skip: a system is only as good as t
 
 So I build agents with that discipline.
 
-• Agentic Financial Research Assistant — a tool-calling financial research API with dynamic tool selection and multi-provider support (Groq, Gemini, Ollama), deployed on Render.
+• Agentic Financial Research Assistant — a complete AI model with compatibility with other popular LLM models (Groq, Gemini, Ollama), with minimum-sufficient tool selection and grounded answers.
 • Adaptive Customer Voice Interviewer — a LangGraph interviewer that generates the next question from what it has already learned, instead of following a fixed questionnaire, with structured evidence tracking and adaptive termination.
 
 I'm looking for applied AI, agent-evaluation and data/evaluation engineering roles — and I'm open to collaborations where model quality and agent reliability matter.
@@ -87,17 +87,17 @@ Created structured educational content and research material — the documentati
 
 ### Agentic Financial Research Assistant
 ```
-An agentic financial research system that selects tools dynamically and grounds multi-step answers in retrieved data. Built with Python, FastAPI, LangChain and OpenBB, with Groq, Gemini and local Ollama providers. Designed explicit grounding rules: prefer retrieved data, disclose provider limits, never fabricate values.
+A complete AI model with compatibility with other popular LLM models (Groq, Gemini and local Ollama). It selects only the data tools needed for each question, grounds multi-step answers in retrieved data, and renders source-backed charts deterministically. Built with Python, FastAPI, LangChain and OpenBB; designed explicit rules to prefer retrieved data, disclose provider limits, and never fabricate values.
 LinkedIn URL/skills: LangChain · FastAPI · Tool Calling · OpenAI · REST APIs
 ```
-Link: live API docs from the portfolio repo's README.
+Links: [GitHub](https://github.com/JatinKumarSharma/Agentic_AI_Projects/tree/main/financial-research-assistant) · [Web app](https://financial-research-assistant-web.vercel.app) · [Case study](https://jatin-sharma-portfolio-ten.vercel.app/case-study/financial-analyst-agent)
 
 ### Adaptive Customer Voice Interviewer
 ```
-A LangGraph interviewer for autonomous consumer research. It maintains a knowledge state, analyses information gaps, generates and evaluates candidate questions, tracks evidence with confidence and verification status, and terminates adaptively. Voice interaction via STT/TTS; FastAPI service on Render.
+A LangGraph interviewer for autonomous consumer research. It maintains a knowledge state, analyses information gaps, generates and evaluates candidate questions, tracks evidence with confidence and verification status, and terminates adaptively. Voice interaction via STT/TTS; FastAPI service with a Researcher Dashboard.
 Skills: LangGraph · LangChain · Groq · FastAPI · Speech-to-Text
 ```
-Link: live demo URL once deployed.
+Links: [GitHub](https://github.com/JatinKumarSharma/Agentic_AI_Projects/tree/main/adaptive-customer-voice-interviewer) · [Case study](https://jatin-sharma-portfolio-ten.vercel.app/case-study/customer-voice-interviewer) · [Researcher Dashboard](https://cvi-portfolio.onrender.com/researcher)
 
 ---
 
@@ -116,9 +116,10 @@ Then add, in this order: `Prompt Engineering · LangChain · LangGraph · Retrie
 ## 6. Featured section (in this order)
 
 1. **Portfolio** — `https://jatin-sharma-portfolio-ten.vercel.app/`
-2. **Case study: Adaptive Customer Voice Interviewer** — `/case-study/customer-voice-interviewer`
-3. **Case study: Financial Analyst Agent** — `/case-study/financial-analyst-agent`
-4. **Resume** — PDF link once hosted (e.g. your site's `/resume.pdf` or a Drive link)
+2. **Case study: Adaptive Customer Voice Interviewer** — `https://jatin-sharma-portfolio-ten.vercel.app/case-study/customer-voice-interviewer`
+3. **Case study: Financial Analyst Agent** — `https://jatin-sharma-portfolio-ten.vercel.app/case-study/financial-analyst-agent`
+4. **Financial research assistant web app** — `https://financial-research-assistant-web.vercel.app`
+5. **Resume** — PDF link once hosted (e.g. your site's `/resume.pdf` or a Drive link)
 
 ---
 
@@ -142,7 +143,7 @@ Here's what that work taught me: most agent demos fail not because the model is 
 
 So I build agents the same way I evaluated models — with evidence, guardrails and an eval mindset:
 
-1. Agentic Financial Research Assistant: a tool-calling research API with grounded answers and multi-provider support.
+1. Agentic Financial Research Assistant: a complete AI model with multi-provider compatibility, grounded answers and deterministic source-backed charts.
 2. Adaptive Customer Voice Interviewer: a LangGraph interviewer that generates the next question from what it learned, with structured evidence tracking.
 
 I'm now open to applied AI, agent-evaluation and data/evaluation engineering roles, and to collaborations where reliability matters.

@@ -12,7 +12,7 @@ Everything below is truthful given the work you described on 22 Nov 2026.
 > **JATIN SHARMA**
 > **AI Engineer (Data & Evaluation) | Multimodal & LLM Quality | Agentic AI Systems**
 > New Delhi, India · 9773540197 · jatin9427@gmail.com
-> LinkedIn · GitHub · Portfolio
+> [LinkedIn](https://www.linkedin.com/in/jatin-sharma-ai-engineer) · [GitHub](https://github.com/JatinKumarSharma) · [Portfolio](https://jatin-sharma-portfolio-ten.vercel.app/)
 
 **Why this headline:** it keeps the exact phrase "AI Engineer" for ATS, adds the honest qualifier that makes you credible, and signals the direction you're moving.
 
@@ -54,26 +54,26 @@ Everything below is truthful given the work you described on 22 Nov 2026.
 ## 4. Projects (two deployed, one in progress)
 
 **Agentic Financial Research Assistant — shipped, deployed**
-GitHub · Live API
+[GitHub](https://github.com/JatinKumarSharma/Agentic_AI_Projects/tree/main/financial-research-assistant) · [Web app](https://financial-research-assistant-web.vercel.app)
 
-- Built and deployed a tool-calling agent that performs multi-step financial research, dynamically selecting data tools and grounding answers in retrieved information.
-- Supports Groq, Gemini and local Ollama through environment-based provider configuration, with provider-aware error handling.
+- Built a tool-calling research agent that performs multi-step financial research, selects only the data tools needed for each question, and grounds answers in retrieved information.
+- Complete AI model with compatibility with other popular LLM models (Groq, Gemini and local Ollama) through environment-based provider configuration, with provider-aware error handling.
 - Designed explicit grounding rules: prefer retrieved tool data over model knowledge, disclose provider limitations, and never fabricate values.
-- REST API via FastAPI, deployed on Render.
+- Added a key-free market-cap snapshot and deterministic pie-chart rendering for share-of-total questions; FastAPI interface and web UI available for live use.
 
 **Adaptive Customer Voice Interviewer — deployed**
-GitHub · Live API
+[GitHub](https://github.com/JatinKumarSharma/Agentic_AI_Projects/tree/main/adaptive-customer-voice-interviewer) · [Case study](https://jatin-sharma-portfolio-ten.vercel.app/case-study/customer-voice-interviewer) · [Researcher Dashboard](https://cvi-portfolio.onrender.com/researcher)
 
 - Built an adaptive agentic interview system that autonomously conducts consumer research across product awareness, sentiment, needs, pain points, aspirations, purchase intent and buying constraints.
 - Implemented a state-driven LangGraph architecture: Meta Planning, Answer Decomposition, Knowledge State Updates, Information Gap Analysis, Proposal Generation, Proposal Evaluation, Decision Policy and Reflection.
 - Built dynamic question generation and evaluation driven by accumulated consumer knowledge rather than a fixed questionnaire.
 - Added structured evidence tracking with information sufficiency, confidence, verification status and adaptive termination criteria.
-- Voice interaction via speech-to-text and text-to-speech; FastAPI service deployed on Render.
-- Tech: Python, LangGraph, LangChain, Groq, FastAPI, STT/TTS, Render.
+- Voice interaction via speech-to-text and text-to-speech; FastAPI service with a neutral Researcher Dashboard.
+- Tech: Python, LangGraph, LangChain, Groq, FastAPI, STT/TTS.
 
 **Currently building:** Research Operating System (hybrid RAG + MCP). Write-up and demo in progress.
 
-**Important:** the deployment wording above is written ahead of the launch — only share this resume once the live URL is working, as you planned. Do not give ResearchOS shipped-language bullets until a demo exists.
+**Important:** both live URLs were smoke-checked on 27 Nov 2026. The exact reported market-cap pie question now returns in 1.88s with one sourced tool call. Do not give ResearchOS shipped-language bullets until a demo exists.
 
 ---
 
@@ -134,6 +134,6 @@ Do not invent any of these. The four numbers you already have (4/5, 4/5, 100, 90
 2. **100 / 90+ are internal and client QA scores out of 100** — labeled as such everywhere.
 3. **Content Writer role kept** on both resume and site, reframed as the origin of your documentation and rubric-writing skill.
 4. Innodata role ended **20 Nov 2026** — shown as June 2024 – November 2026.
-5. **DOCX generated:** `Jatin_Sharma_Resume.docx` in the repo root. Open in Word, review, export to PDF.
-6. Next: align LinkedIn headline / About / Experience to this same identity.
-7. Then: rewrite the cover letter around this truthful story.
+5. **DOCX updated:** `Jatin_Sharma_Resume.docx` in the repo root now carries the real project links and the verified financial-assistant wording. Open in Word, review, export to PDF.
+6. **LinkedIn kit aligned:** `LINKEDIN_PROFILE.md` uses the same identity and approved links.
+7. **Cover letter aligned:** `COVER_LETTER.md` uses the same positioning; replace only the company-specific paragraph and placeholders before sending.

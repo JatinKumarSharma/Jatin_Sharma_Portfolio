@@ -147,6 +147,13 @@ function CaseStudy() {
                   >
                     Learnings
                   </a>
+
+                  <a
+                    href="#future"
+                    className="text-muted hover:text-accent"
+                  >
+                    Future Scope
+                  </a>
                 </div>
               </div>
             </aside>
@@ -686,9 +693,72 @@ function CaseStudy() {
                     Reliability is designed in, not bolted on: the agent prefers retrieved
                     tool data over model knowledge, discloses provider limitations instead
                     of inventing values, and runs a bounded tool loop with explicit error
-                    handling. The next stage is measurement — a question-level eval set,
-                    groundedness checks and execution tracing.
+                    handling. The scored baseline is v5; v6 source-expansion and v8
+                    no-key fallback traces are kept separate so comparisons stay honest.
                   </p>
+                </div>
+              </section>
+
+              {/* Future scope */}
+              <section
+                id="future"
+                className="mt-20 scroll-mt-28 border-t border-border/50 pt-16"
+              >
+                <span className="text-xs font-semibold tracking-[0.14em] text-accent">
+                  08 — FUTURE SCOPE
+                </span>
+
+                <h2 className="mt-4 font-display text-3xl font-medium tracking-[-0.025em] text-foreground md:text-4xl">
+                  Better coverage, lower cost,
+                  <br />
+                  and evidence that stays comparable.
+                </h2>
+
+                <p className="mt-6 max-w-3xl text-[15px] leading-[1.8] text-muted">
+                  The assistant already selects only the tools a query needs and
+                  refuses to fill provider gaps with invented values. The next
+                  work is breadth and measurement discipline.
+                </p>
+
+                <div className="mt-10 grid gap-4 md:grid-cols-2">
+                  {[
+                    {
+                      title: "Wider fixed evaluation suite",
+                      text: "More question families and repeated runs, kept under the same provider and model so scores remain comparable.",
+                    },
+                    {
+                      title: "Broader source reliability",
+                      text: "Additional primary financial sources with the same failed-evidence and contradiction guardrails before any source reaches an answer.",
+                    },
+                    {
+                      title: "Tool-budget telemetry",
+                      text: "Per-query tool counts, cache behavior and latency grouped by intent to verify that minimum-sufficient selection saves real compute.",
+                    },
+                    {
+                      title: "Multi-turn research sessions",
+                      text: "Follow-up questions that reuse verified context without treating stale tool data as current evidence.",
+                    },
+                    {
+                      title: "Frontend evidence views",
+                      text: "A user-facing trace panel that shows which tool returned each claim and where a provider limitation was disclosed.",
+                    },
+                    {
+                      title: "Reliability operations",
+                      text: "Regression checks for provider outages, rate limits and schema drift across model backends.",
+                    },
+                  ].map((item) => (
+                    <div
+                      key={item.title}
+                      className="border border-border/60 bg-surface p-6"
+                    >
+                      <h3 className="font-display text-lg text-foreground">
+                        {item.title}
+                      </h3>
+                      <p className="mt-3 text-sm leading-[1.7] text-muted">
+                        {item.text}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </section>
 

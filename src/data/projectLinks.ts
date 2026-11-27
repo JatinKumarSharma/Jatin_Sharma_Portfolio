@@ -4,8 +4,8 @@ export const PROJECTS_REPO_URL =
 export const FINANCIAL_AGENT_LIVE_URL =
   "https://financial-analyst-api-fw98.onrender.com/docs";
 
-// Neutral reference only. The case study may link to the researcher dashboard
-// without a LIVE badge, a "Deployed" claim or "runs on Render" wording.
+// Demo link only. Label it "Demo link" or "Researcher Dashboard (demo)";
+// do not add a LIVE badge or "runs on Render" wording.
 export const CUSTOMER_VOICE_RESEARCHER_URL =
   "https://cvi-portfolio.onrender.com/researcher";
 

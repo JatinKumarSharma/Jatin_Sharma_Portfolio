@@ -45,7 +45,7 @@ That work taught me what most agent builders skip: a system is only as good as t
 So I build agents with that discipline.
 
 • Agentic Financial Research Assistant — a complete AI model with compatibility with other popular LLM models (Groq, Gemini, Ollama), with minimum-sufficient tool selection and grounded answers.
-• Adaptive Customer Voice Interviewer — a LangGraph interviewer that generates the next question from what it has already learned, instead of following a fixed questionnaire, with structured evidence tracking and adaptive termination.
+• Adaptive Customer Voice Interviewer — a LangGraph interviewer that generates the next question from what it has already learned, instead of following a fixed questionnaire, with structured evidence tracking, adaptive termination and a hosted demo link.
 
 I'm looking for applied AI, agent-evaluation and data/evaluation engineering roles — and I'm open to collaborations where model quality and agent reliability matter.
 
@@ -94,10 +94,10 @@ Links: [GitHub](https://github.com/JatinKumarSharma/Agentic_AI_Projects/tree/mai
 
 ### Adaptive Customer Voice Interviewer
 ```
-A LangGraph interviewer for autonomous consumer research. It maintains a knowledge state, analyses information gaps, generates and evaluates candidate questions, tracks evidence with confidence and verification status, and terminates adaptively. Voice interaction via STT/TTS; FastAPI service with a Researcher Dashboard.
+A LangGraph interviewer for autonomous consumer research. It maintains a knowledge state, analyses information gaps, generates and evaluates candidate questions, tracks evidence with confidence and verification status, and terminates adaptively. Voice interaction via STT/TTS; FastAPI service with a hosted Researcher Dashboard demo link.
 Skills: LangGraph · LangChain · Groq · FastAPI · Speech-to-Text
 ```
-Links: [GitHub](https://github.com/JatinKumarSharma/Agentic_AI_Projects/tree/main/adaptive-customer-voice-interviewer) · [Case study](https://jatin-sharma-portfolio-ten.vercel.app/case-study/customer-voice-interviewer) · [Researcher Dashboard](https://cvi-portfolio.onrender.com/researcher)
+Links: [GitHub](https://github.com/JatinKumarSharma/Agentic_AI_Projects/tree/main/adaptive-customer-voice-interviewer) · [Case study](https://jatin-sharma-portfolio-ten.vercel.app/case-study/customer-voice-interviewer) · [Demo link](https://cvi-portfolio.onrender.com/researcher)
 
 ---
 
@@ -144,7 +144,7 @@ Here's what that work taught me: most agent demos fail not because the model is 
 So I build agents the same way I evaluated models — with evidence, guardrails and an eval mindset:
 
 1. Agentic Financial Research Assistant: a complete AI model with multi-provider compatibility, grounded answers and deterministic source-backed charts.
-2. Adaptive Customer Voice Interviewer: a LangGraph interviewer that generates the next question from what it learned, with structured evidence tracking.
+2. Adaptive Customer Voice Interviewer: a LangGraph interviewer that generates the next question from what it learned, with structured evidence tracking and a hosted demo link.
 
 I'm now open to applied AI, agent-evaluation and data/evaluation engineering roles, and to collaborations where reliability matters.
 

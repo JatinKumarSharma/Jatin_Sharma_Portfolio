@@ -61,19 +61,19 @@ Everything below is truthful given the work you described on 22 Nov 2026.
 - Designed explicit grounding rules: prefer retrieved tool data over model knowledge, disclose provider limitations, and never fabricate values.
 - Added a key-free market-cap snapshot and deterministic pie-chart rendering for share-of-total questions; FastAPI interface and web UI available for live use.
 
-**Adaptive Customer Voice Interviewer — deployed**
-[GitHub](https://github.com/JatinKumarSharma/Agentic_AI_Projects/tree/main/adaptive-customer-voice-interviewer) · [Case study](https://jatin-sharma-portfolio-ten.vercel.app/case-study/customer-voice-interviewer) · [Researcher Dashboard](https://cvi-portfolio.onrender.com/researcher)
+**Adaptive Customer Voice Interviewer — deployed demo**
+[GitHub](https://github.com/JatinKumarSharma/Agentic_AI_Projects/tree/main/adaptive-customer-voice-interviewer) · [Case study](https://jatin-sharma-portfolio-ten.vercel.app/case-study/customer-voice-interviewer) · [Demo link](https://cvi-portfolio.onrender.com/researcher)
 
 - Built an adaptive agentic interview system that autonomously conducts consumer research across product awareness, sentiment, needs, pain points, aspirations, purchase intent and buying constraints.
 - Implemented a state-driven LangGraph architecture: Meta Planning, Answer Decomposition, Knowledge State Updates, Information Gap Analysis, Proposal Generation, Proposal Evaluation, Decision Policy and Reflection.
 - Built dynamic question generation and evaluation driven by accumulated consumer knowledge rather than a fixed questionnaire.
 - Added structured evidence tracking with information sufficiency, confidence, verification status and adaptive termination criteria.
-- Voice interaction via speech-to-text and text-to-speech; FastAPI service with a neutral Researcher Dashboard.
+- Voice interaction via speech-to-text and text-to-speech; FastAPI service with a hosted Researcher Dashboard demo link.
 - Tech: Python, LangGraph, LangChain, Groq, FastAPI, STT/TTS.
 
 **Currently building:** Research Operating System (hybrid RAG + MCP). Write-up and demo in progress.
 
-**Important:** both live URLs were smoke-checked on 27 Nov 2026. The exact reported market-cap pie question now returns in 1.88s with one sourced tool call. Do not give ResearchOS shipped-language bullets until a demo exists.
+**Important:** both links were smoke-checked on 27 Nov 2026. The exact reported market-cap pie question now returns in 1.88s with one sourced tool call. Do not give ResearchOS shipped-language bullets until a demo exists.
 
 ---
 

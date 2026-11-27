@@ -83,6 +83,75 @@ const activeConversationChain = [
   },
 ];
 
+const futureScopeFoundations = [
+  {
+    title: "Production-grade deployment",
+    text: "Move from the current free Render + Neon demo setup to the strict production target: VPS/custom domain deployment with Docker Compose, managed secrets, HTTPS, backups, monitoring, and production auth hardening.",
+  },
+  {
+    title: "Reliable, higher-accuracy voice",
+    text: "Upgrade speech capabilities beyond free-tier constraints by using higher-RAM/paid hosting or self-hosted STT/TTS models for better transcript accuracy, lower latency, and always-on reliability, while preserving typed-input fallback.",
+  },
+  {
+    title: "Pluggable provider architecture",
+    text: "Extend the existing client-replaceable boundaries for storage/memory, voice/speech, and LLM model/provider so deployments can swap demo/free providers (Groq, browser speech, Neon/Render) with self-hosted or enterprise-grade alternatives without changing the core evidence-first interview workflow.",
+  },
+  {
+    title: "Self-hosted/privacy-first profile",
+    text: "Strengthen the strict self-hosted deployment profile for privacy-sensitive environments, keeping participant data, speech processing, and model inference within controlled infrastructure.",
+  },
+];
+
+const researchMeasurementScope = [
+  {
+    title: "Question-quality eval set",
+    text: "Consented, human-reviewed transcripts scored for follow-up relevance, redundancy and research progress.",
+  },
+  {
+    title: "Live timing dashboard",
+    text: "First-question latency, acknowledgement timing, engagement emit time and failed-job counts in one view.",
+  },
+  {
+    title: "Researcher review workflow",
+    text: "Human confirmation of evidence claims plus published retention and deletion controls for each study.",
+  },
+  {
+    title: "Cross-session insight views",
+    text: "Aggregate themes across sessions with tenant isolation and source quotes preserved end to end.",
+  },
+];
+
+const fusionEvidenceWorlds = [
+  {
+    title: "Stated perception / consumer intelligence",
+    text: "What people say: first-party interview evidence about needs, sentiment and intent.",
+  },
+  {
+    title: "Observed behavior / market & commercial signals",
+    text: "What people do: authorized behavioral or commercial signals, kept separate from stated claims.",
+  },
+  {
+    title: "Public market sentiment / external signals",
+    text: "What the market reveals: public sentiment and external signals with provenance retained.",
+  },
+];
+
+const fusionCapabilities = [
+  "Perception–behavior gap detection",
+  "Unified market understanding",
+  "Continuous market monitoring",
+  "Historical intelligence",
+  "Decision support",
+];
+
+const cviRoadmap = [
+  "Single-product case study",
+  "Continuous monitoring",
+  "Authorized commercial integrations",
+  "Fusion engine",
+  "Commercial intelligence service",
+];
+
 function CustomerVoiceCaseStudy() {
   return (
     <>
@@ -633,56 +702,192 @@ function CustomerVoiceCaseStudy() {
                 </span>
 
                 <h2 className="mt-4 font-display text-3xl font-medium tracking-[-0.025em] text-foreground md:text-4xl">
-                  From a working loop to
+                  From an adaptive interview loop
                   <br />
-                  measured research infrastructure.
+                  to market intelligence.
                 </h2>
 
                 <p className="mt-6 max-w-3xl text-[15px] leading-[1.8] text-muted">
-                  The next stage is not another prompt. It is a stronger
-                  measurement and operations layer around the loop already
-                  built.
+                  The next stage is not another prompt. It has two layers:
+                  harden the current platform for production, then explore a
+                  longer-term Intelligence Fusion Engine. Every future
+                  capability keeps evidence provenance, consent and provider
+                  boundaries intact.
                 </p>
 
-                <div className="mt-10 grid gap-4 md:grid-cols-2">
-                  {[
-                    {
-                      title: "Question-quality eval set",
-                      text: "Consented, human-reviewed transcripts scored for follow-up relevance, redundancy and research progress.",
-                    },
-                    {
-                      title: "Live timing dashboard",
-                      text: "First-question latency, acknowledgement timing, engagement emit time and failed-job counts in one view.",
-                    },
-                    {
-                      title: "More voice profiles",
-                      text: "Multilingual STT/TTS and regional accent coverage with the same provider boundary and consent flow.",
-                    },
-                    {
-                      title: "Predictable public traffic",
-                      text: "A rate-safe model tier or GPU-backed self-hosted model, chosen from measured latency and cost rather than guesswork.",
-                    },
-                    {
-                      title: "Researcher review workflow",
-                      text: "Human confirmation of evidence claims plus published retention and deletion controls for each study.",
-                    },
-                    {
-                      title: "Cross-session insight views",
-                      text: "Aggregate themes across sessions with tenant isolation and source quotes preserved end to end.",
-                    },
-                  ].map((item) => (
-                    <div
-                      key={item.title}
-                      className="border border-border/60 bg-surface p-6"
-                    >
-                      <h3 className="font-display text-lg text-foreground">
-                        {item.title}
-                      </h3>
-                      <p className="mt-3 text-sm leading-[1.7] text-muted">
-                        {item.text}
+                <div className="mt-10">
+                  <div className="flex flex-wrap items-baseline justify-between gap-3">
+                    <span className="text-[10px] font-semibold tracking-[0.14em] text-accent">
+                      FOUNDATIONAL PLATFORM SCOPE
+                    </span>
+                    <span className="font-mono text-[10px] tracking-[0.08em] text-subtle">
+                      01 / 03
+                    </span>
+                  </div>
+
+                  <p className="mt-3 max-w-3xl text-[13px] leading-[1.8] text-muted">
+                    The current demo is built on replaceable boundaries. These
+                    are the production prerequisites before any broader
+                    intelligence claim.
+                  </p>
+
+                  <div className="mt-6 grid gap-4 md:grid-cols-2">
+                    {futureScopeFoundations.map((item) => (
+                      <div
+                        key={item.title}
+                        className="border border-border/60 bg-surface p-6"
+                      >
+                        <h3 className="font-display text-base text-foreground">
+                          {item.title}
+                        </h3>
+                        <p className="mt-3 text-[13px] leading-[1.75] text-muted">
+                          {item.text}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-12 border-t border-border/50 pt-10">
+                  <div className="flex flex-wrap items-baseline justify-between gap-3">
+                    <span className="text-[10px] font-semibold tracking-[0.14em] text-accent">
+                      RESEARCH MEASUREMENT LAYER
+                    </span>
+                    <span className="font-mono text-[10px] tracking-[0.08em] text-subtle">
+                      02 / 03
+                    </span>
+                  </div>
+
+                  <p className="mt-3 max-w-3xl text-[13px] leading-[1.8] text-muted">
+                    A stronger measurement and operations layer around the loop
+                    already built.
+                  </p>
+
+                  <div className="mt-6 grid gap-4 md:grid-cols-2">
+                    {researchMeasurementScope.map((item) => (
+                      <div
+                        key={item.title}
+                        className="border border-border/60 bg-surface p-6"
+                      >
+                        <h3 className="font-display text-base text-foreground">
+                          {item.title}
+                        </h3>
+                        <p className="mt-3 text-[13px] leading-[1.75] text-muted">
+                          {item.text}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-12 border-t border-border/50 pt-10">
+                  <div className="flex flex-wrap items-baseline justify-between gap-3">
+                    <span className="text-[10px] font-semibold tracking-[0.14em] text-accent">
+                      LONGER-TERM DIRECTION · FUTURE CONCEPT
+                    </span>
+                    <span className="font-mono text-[10px] tracking-[0.08em] text-subtle">
+                      03 / 03
+                    </span>
+                  </div>
+
+                  <h3 className="mt-4 font-display text-2xl text-foreground">
+                    From consumer voice to market intelligence.
+                  </h3>
+
+                  <p className="mt-4 max-w-3xl text-[15px] leading-[1.8] text-muted">
+                    Evolve CVI from an adaptive AI interviewer into an
+                    autonomous consumer and market intelligence platform that
+                    connects what people say, what they do, and what the market
+                    reveals.
+                  </p>
+
+                  <div className="mt-8 border border-accent/30 bg-accent/[0.03] p-6 md:p-8">
+                    <span className="text-[10px] font-semibold tracking-[0.14em] text-accent">
+                      CVI INTELLIGENCE FUSION ENGINE · EVIDENCE WORLDS
+                    </span>
+                    <p className="mt-3 max-w-3xl text-[13px] leading-[1.8] text-muted">
+                      Align products/variants, time periods, regions and
+                      segments; detect trends, compare evidence, identify
+                      contradictions and generate testable hypotheses.
+                    </p>
+
+                    <div className="mt-6 grid gap-4 lg:grid-cols-3">
+                      {fusionEvidenceWorlds.map((world) => (
+                        <div
+                          key={world.title}
+                          className="border border-border/60 bg-background/40 p-5"
+                        >
+                          <h4 className="font-display text-sm text-foreground">
+                            {world.title}
+                          </h4>
+                          <p className="mt-3 text-xs leading-[1.75] text-muted">
+                            {world.text}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-6 grid gap-4 md:grid-cols-2">
+                    <div className="border border-border/60 bg-surface p-6">
+                      <span className="text-[10px] font-semibold tracking-[0.14em] text-accent">
+                        KEY CAPABILITIES
+                      </span>
+                      <ul className="mt-3 space-y-2 text-[13px] leading-[1.7] text-muted">
+                        {fusionCapabilities.map((capability) => (
+                          <li key={capability} className="flex gap-3">
+                            <span className="text-accent">—</span>
+                            <span>{capability}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="border border-border/60 bg-surface p-6">
+                      <span className="text-[10px] font-semibold tracking-[0.14em] text-accent">
+                        DATA STRATEGY
+                      </span>
+                      <p className="mt-3 text-[13px] leading-[1.8] text-muted">
+                        First-party data foundation; authorized external data;
+                        public signal enrichment; clear boundaries against
+                        private marketplace data, login bypass, CAPTCHA bypass
+                        or access-control bypass.
                       </p>
                     </div>
-                  ))}
+                  </div>
+
+                  <div className="mt-4 border border-border/60 bg-surface p-6">
+                    <span className="text-[10px] font-semibold tracking-[0.14em] text-accent">
+                      TRUST GUARDRAILS
+                    </span>
+                    <p className="mt-3 text-[13px] leading-[1.8] text-muted">
+                      Preserve provenance; do not merge truths blindly;
+                      hypotheses not automatic conclusions; privacy and
+                      compliance; reliable product identity via
+                      GTIN/EAN/UPC/ASIN/SKU/MPN/model number.
+                    </p>
+                  </div>
+
+                  <div className="mt-8">
+                    <span className="text-[10px] font-semibold tracking-[0.14em] text-accent">
+                      PHASED ROADMAP
+                    </span>
+                    <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+                      {cviRoadmap.map((stage, index) => (
+                        <div
+                          key={stage}
+                          className="border border-border/60 bg-surface p-4"
+                        >
+                          <span className="font-mono text-[10px] text-accent">
+                            0{index + 1}
+                          </span>
+                          <p className="mt-2 text-xs leading-[1.6] text-foreground">
+                            {stage}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </section>
 
@@ -694,7 +899,7 @@ function CustomerVoiceCaseStudy() {
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 border border-border px-5 py-3 text-sm text-muted transition-colors hover:border-accent hover:text-foreground"
                 >
-                  Researcher Dashboard
+                  Researcher Dashboard (demo)
                   <span>↗</span>
                 </a>
 

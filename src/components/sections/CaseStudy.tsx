@@ -278,14 +278,13 @@ function CaseStudy() {
                     {/* API Design */}
                     <div className="mt-8 border-l border-accent/60 pl-6">
                       <span className="text-xs font-semibold tracking-[0.14em] text-accent">
-                        API-FIRST DESIGN
+                        INTEGRATION-READY DESIGN
                       </span>
 
                       <p className="mt-3 max-w-2xl text-[15px] leading-[1.7] text-muted">
-                        The agent is exposed through FastAPI, allowing the
-                        financial research capabilities to be consumed by
-                        external applications, interfaces, or future frontend
-                        systems.
+                        A FastAPI interface lets external applications and
+                        frontends send questions and receive grounded answers,
+                        charts and tool traces.
                       </p>
                     </div>
                   </div>
@@ -308,10 +307,10 @@ function CaseStudy() {
                 </h2>
 
                 <p className="mt-6 max-w-3xl text-[15px] leading-[1.8] text-muted">
-                  The system combines an API interface with an LLM-powered
-                  financial agent. The agent interprets the request, selects
-                  appropriate tools and synthesizes retrieved information into a
-                  contextual response.
+                  The system combines an integration interface with an
+                  LLM-powered financial agent. The agent interprets the request,
+                  selects appropriate tools and synthesizes retrieved
+                  information into a contextual response.
                 </p>
 
                 {/* Architecture Flow */}
@@ -322,7 +321,7 @@ function CaseStudy() {
                         number: "01",
                         title: "Client Request",
                         description:
-                          "A financial question is submitted to the API.",
+                          "A financial question is submitted to the assistant.",
                       },
                       {
                         number: "02",
@@ -583,13 +582,12 @@ function CaseStudy() {
                     </span>
 
                     <h3 className="mt-4 font-display text-xl text-foreground">
-                      API-First Design
+                      Integration-Ready Design
                     </h3>
 
                     <p className="mt-3 text-sm leading-[1.7] text-muted">
-                      Exposes the agent through a structured API, allowing
-                      future interfaces and applications to consume the system
-                      independently.
+                      Provides a stable interface so future interfaces and
+                      applications can use the assistant independently.
                     </p>
                   </div>
 
@@ -629,8 +627,8 @@ function CaseStudy() {
                 <div className="mt-8 space-y-4">
                   {[
                     {
-                      title: "API Layer",
-                      text: "FastAPI provides structured endpoints and automatically generated interactive documentation.",
+                      title: "Interface Layer",
+                      text: "FastAPI provides structured request handling and automatically generated interactive documentation.",
                     },
                     {
                       title: "Data Retrieval",
@@ -641,8 +639,8 @@ function CaseStudy() {
                       text: "Retrieved information is organized into predictable structured responses for downstream consumption.",
                     },
                     {
-                      title: "Deployment",
-                      text: "The application is deployed as a publicly accessible web service.",
+                      title: "Availability",
+                      text: "The assistant is available through a public web interface.",
                     },
                   ].map((item) => (
                     <div
@@ -765,22 +763,22 @@ function CaseStudy() {
               {/* Links */}
               <div className="mt-24 flex flex-wrap gap-4 border-t border-border/50 pt-10">
                 <a
-                  href="https://financial-analyst-api-fw98.onrender.com/docs"
+                  href="https://financial-research-assistant-web.vercel.app"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 border border-accent/50 px-5 py-3 text-sm text-foreground transition-colors hover:border-accent hover:text-accent"
                 >
-                  Explore Live API
+                  Open research assistant
                   <span>↗</span>
                 </a>
 
                 <a
-                  href="https://github.com/JatinKumarSharma/Agentic_AI_Projects"
+                  href="https://github.com/JatinKumarSharma/Agentic_AI_Projects/tree/main/financial-research-assistant"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 border border-border px-5 py-3 text-sm text-muted transition-colors hover:border-accent hover:text-foreground"
                 >
-                  View Repository
+                  View Code
                   <span>↗</span>
                 </a>
               </div>

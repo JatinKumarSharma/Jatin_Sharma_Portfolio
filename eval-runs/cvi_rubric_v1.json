@@ -1,0 +1,56 @@
+{
+  "project": "Adaptive Customer Voice Interviewer",
+  "rubric_version": "cvi-system-v1",
+  "run_date": "2026-11-27",
+  "source_commit_prefix": "c3aea90",
+  "comparability": "System-level execution checks; not comparable to the Financial Research Assistant model-response 5-D scores.",
+  "full_suite": {
+    "passed": 435,
+    "skipped": 4,
+    "warnings": 13,
+    "duration_seconds": 12.78
+  },
+  "dimensions": [
+    {
+      "name": "Evidence grounding",
+      "score": 5.0,
+      "checks_passed": 39,
+      "checks_total": 39,
+      "evidence": "Report claims, evidence retrieval, researcher evidence API, memory reports, verbatim source-quote contract."
+    },
+    {
+      "name": "Adaptive decision quality",
+      "score": 5.0,
+      "checks_passed": 50,
+      "checks_total": 50,
+      "evidence": "Proposal evaluation/calibration, gap analysis, state updates, target selection, generation, response outcomes."
+    },
+    {
+      "name": "Voice & timing integrity",
+      "score": 5.0,
+      "checks_passed": 54,
+      "checks_total": 54,
+      "evidence": "Voice profile/providers, acknowledgement events, output events, transcription/synthesis, local stream, contextual engagement, timing, graph voice bridge."
+    },
+    {
+      "name": "Security & tenancy",
+      "score": 5.0,
+      "checks_passed": 94,
+      "checks_total": 94,
+      "evidence": "Abuse limits, participant capability, link expiry, researcher accounts/access, tenant audit, PostgreSQL roles."
+    },
+    {
+      "name": "Resilience & provider boundaries",
+      "score": 5.0,
+      "checks_passed": 39,
+      "checks_total": 39,
+      "evidence": "Durable checkpointer/worker/queue, shared session state, concurrency, provider config, render profile, observability."
+    }
+  ],
+  "hosted_smoke": {
+    "availability": "confirmed",
+    "first_question_seconds": 84.5,
+    "response_processing_seconds": 49.4,
+    "benchmark_claim": false
+  }
+}

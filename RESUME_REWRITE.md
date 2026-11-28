@@ -12,7 +12,7 @@ Everything below is truthful given the work you described on 22 Nov 2026.
 > **JATIN SHARMA**
 > **AI Engineer (Data & Evaluation) | Multimodal & LLM Quality | Agentic AI Systems**
 > New Delhi, India · 9773540197 · jatin9427@gmail.com
-> [LinkedIn](https://www.linkedin.com/in/jatin-sharma-ai-engineer) · [GitHub](https://github.com/JatinKumarSharma) · [Portfolio](https://jatin-sharma-portfolio-ten.vercel.app/)
+> [LinkedIn](https://www.linkedin.com/in/jatin-sharma-ai-engineer) · [GitHub](https://github.com/JatinKumarSharma/Agentic_AI_Projects) · [Portfolio](https://jatin-sharma-portfolio-ten.vercel.app/)
 
 **Why this headline:** it keeps the exact phrase "AI Engineer" for ATS, adds the honest qualifier that makes you credible, and signals the direction you're moving.
 

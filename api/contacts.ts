@@ -2,6 +2,11 @@ import { createHash, randomUUID, timingSafeEqual } from "node:crypto";
 import { promises as fs } from "node:fs";
 import { dirname, resolve } from "node:path";
 import type { IncomingMessage, ServerResponse } from "node:http";
+import {
+  BlobPreconditionFailedError,
+  get as getBlob,
+  put as putBlob,
+} from "@vercel/blob";
 
 type RequestLike = IncomingMessage & { body?: unknown };
 type ResponseLike = ServerResponse;
@@ -27,11 +32,26 @@ const RATE_WINDOW_MS = 10 * 60 * 1000;
 const RATE_LIMIT = 5;
 const requestWindows = new Map<string, number[]>();
 
-function contactsFilePath(): string {
+type ContactTarget =
+  | { kind: "file"; path: string }
+  | { kind: "blob"; pathname: string };
+
+function contactsTarget(): ContactTarget {
   const configured = process.env.PORTFOLIO_CONTACTS_FILE;
-  if (configured) return resolve(configured);
-  if (process.env.VERCEL) return resolve("/tmp/inbound-contacts.json");
-  return resolve(process.cwd(), "data", "inbound-contacts.json");
+  if (configured?.startsWith("blob:")) {
+    return {
+      kind: "blob",
+      pathname: configured.slice("blob:".length).replace(/^\/+/, ""),
+    };
+  }
+  if (configured) return { kind: "file", path: resolve(configured) };
+  if (process.env.VERCEL) {
+    return { kind: "file", path: resolve("/tmp/inbound-contacts.json") };
+  }
+  return {
+    kind: "file",
+    path: resolve(process.cwd(), "data", "inbound-contacts.json"),
+  };
 }
 
 function send(res: ResponseLike, status: number, body: unknown): void {
@@ -81,30 +101,59 @@ async function readBody(req: RequestLike): Promise<unknown> {
   return raw ? JSON.parse(raw) : {};
 }
 
-async function readStore(filePath: string): Promise<ContactStore> {
+function emptyStore(): ContactStore {
+  return { schema_version: 1, records: [] };
+}
+
+function normalizeStore(parsed: unknown): ContactStore {
+  if (
+    !parsed ||
+    typeof parsed !== "object" ||
+    !Array.isArray((parsed as ContactStore).records)
+  ) {
+    throw new Error("invalid contact store");
+  }
+  return {
+    schema_version: 1,
+    records: (parsed as ContactStore).records,
+  };
+}
+
+async function readFileStore(filePath: string): Promise<ContactStore> {
   try {
-    const parsed: unknown = JSON.parse(await fs.readFile(filePath, "utf8"));
-    if (
-      !parsed ||
-      typeof parsed !== "object" ||
-      !Array.isArray((parsed as ContactStore).records)
-    ) {
-      throw new Error("invalid contact store");
-    }
-    return {
-      schema_version: 1,
-      records: (parsed as ContactStore).records,
-    };
+    return normalizeStore(JSON.parse(await fs.readFile(filePath, "utf8")));
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code === "ENOENT") {
-      return { schema_version: 1, records: [] };
+      return emptyStore();
     }
     throw error;
   }
 }
 
-async function appendRecord(filePath: string, record: ContactRecord): Promise<void> {
-  const store = await readStore(filePath);
+type BlobStoreSnapshot = { store: ContactStore; etag?: string };
+
+async function readBlobStore(pathname: string): Promise<BlobStoreSnapshot> {
+  const result = await getBlob(pathname, { access: "private" });
+  if (!result || result.statusCode !== 200 || !result.stream) {
+    return { store: emptyStore() };
+  }
+  const raw = await new Response(result.stream).text();
+  return {
+    store: normalizeStore(JSON.parse(raw)),
+    etag: result.blob.etag,
+  };
+}
+
+async function readStore(target: ContactTarget): Promise<ContactStore> {
+  if (target.kind === "blob") return (await readBlobStore(target.pathname)).store;
+  return readFileStore(target.path);
+}
+
+async function appendFileRecord(
+  filePath: string,
+  record: ContactRecord,
+): Promise<void> {
+  const store = await readFileStore(filePath);
   store.records.push(record);
   await fs.mkdir(dirname(filePath), { recursive: true });
   const tempPath = `${filePath}.${randomUUID()}.tmp`;
@@ -118,6 +167,41 @@ async function appendRecord(filePath: string, record: ContactRecord): Promise<vo
     await fs.unlink(tempPath).catch(() => undefined);
     throw error;
   }
+}
+
+async function appendBlobRecord(
+  pathname: string,
+  record: ContactRecord,
+): Promise<void> {
+  for (let attempt = 0; attempt < 5; attempt += 1) {
+    const snapshot = await readBlobStore(pathname);
+    const store = snapshot.store;
+    store.records.push(record);
+    try {
+      await putBlob(pathname, `${JSON.stringify(store, null, 2)}\n`, {
+        access: "private",
+        contentType: "application/json; charset=utf-8",
+        cacheControlMaxAge: 60,
+        addRandomSuffix: false,
+        allowOverwrite: true,
+        ...(snapshot.etag ? { ifMatch: snapshot.etag } : {}),
+      });
+      return;
+    } catch (error) {
+      if (error instanceof BlobPreconditionFailedError && attempt < 4) {
+        continue;
+      }
+      throw error;
+    }
+  }
+}
+
+async function appendRecord(
+  target: ContactTarget,
+  record: ContactRecord,
+): Promise<void> {
+  if (target.kind === "blob") return appendBlobRecord(target.pathname, record);
+  return appendFileRecord(target.path, record);
 }
 
 export default async function handler(req: RequestLike, res: ResponseLike) {
@@ -135,7 +219,7 @@ export default async function handler(req: RequestLike, res: ResponseLike) {
       return;
     }
     try {
-      send(res, 200, await readStore(contactsFilePath()));
+      send(res, 200, await readStore(contactsTarget()));
     } catch {
       send(res, 500, { error: "Structured export unavailable." });
     }
@@ -204,7 +288,7 @@ export default async function handler(req: RequestLike, res: ResponseLike) {
   };
 
   try {
-    await appendRecord(contactsFilePath(), record);
+    await appendRecord(contactsTarget(), record);
   } catch {
     send(res, 500, { error: "Submission could not be recorded." });
     return;

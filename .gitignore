@@ -25,3 +25,6 @@ dist-ssr
 
 .vercel
 .env*
+
+# Local contact-form submissions
+data/inbound-contacts.json
